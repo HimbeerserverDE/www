@@ -1,5 +1,7 @@
 file = {}
 
+local mdroot = "/usr/local/apache2/htdocs"
+
 function string.split(self, sep)
 	if not sep then sep = "%s" end
 
@@ -36,7 +38,7 @@ function file.write(path, contents)
 end
 
 function file.process(uri, templates, params)
-	path = "/var/www/md" .. uri
+	path = mdroot .. uri
 
 	local contents = file.read(path)
 	if not contents then
