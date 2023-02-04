@@ -8,3 +8,4 @@ services:
       - type: bind
         source: ./ssl
         target: /usr/local/apache2/ssl
+    restart: always
