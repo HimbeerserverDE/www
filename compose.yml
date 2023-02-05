@@ -6,8 +6,11 @@ services:
       - "443:443"
     volumes:
       - type: bind
-        source: ./ssl
-        target: /usr/local/apache2/ssl
+        source: ./ssl/server.crt
+        target: /usr/local/apache2/ssl/server.crt
+      - type: bind
+        source: ./ssl/server.key
+        target: /usr/local/apache2/ssl/server.key
       - type: bind
         source: ./.well-known
         target: /usr/local/apache2/htdocs/.well-known
