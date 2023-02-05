@@ -1,7 +1,26 @@
 % Password Generator
 
-This page generates a few passwords on the server and displays them to the user.
+This page generates a few passwords *on the server* and displays them to the user.
 The code can be found [on GitHub](https://github.com/HimbeerserverDE/www.himbeerserver.de/blob/main/himbeerserver/usr/lib/cgi-bin/password_generator.lua).
+
+# Security issue
+
+**This generator is extremely insecure.**
+
+For convenience reasons the generator internally uses Lua's `math.random`
+and seeds it with cryptographically secure random data.
+
+It gets this data by reading 64 bytes from `/dev/random`
+and adding their ASCII codes together in a loop.
+In this step the number of possible combinations is reduced
+from `256^64` to just `256*64`.
+
+It is trivial to use this knowledge to generate all possible passwords.
+This only takes about a second even on my slow machine. The list
+can then be used in a dictionary attack.
+
+**DO NOT USE THIS! A proper generator like the one in KeePassXC
+is a much more secure and convenient option!**
 
 # 32 Letters, digits, punctuation characters
 * `${strongest1}`
