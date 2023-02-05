@@ -8,4 +8,7 @@ services:
       - type: bind
         source: ./ssl
         target: /usr/local/apache2/ssl
+      - type: bind
+        source: ./.well-known
+        target: /usr/local/apache2/htdocs/.well-known
     restart: always
