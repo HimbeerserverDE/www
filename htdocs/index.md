@@ -15,11 +15,11 @@ CPUs.
 
 I also made some small web apps in the past that I'll eventually publish here.
 
-I use Debian and Raspberry Pi OS actively, but I'd probably be able to use some
-other distros if I wanted to. My window manager is
+I use Debian, Raspberry Pi OS, OpenWrt and Artix actively,
+but I'd probably be able to use some other distros if I wanted to.
+My window manager is
 [bspwm](https://github.com/baskerville/bspwm) with a custom setup.
-The polybar setup was written by [Fleckenstein](#friends) and modified
-to display a second bar on a second monitor. You can find everything
+You can find everything
 [here](https://github.com/HimbeerserverDE/bspwm-setup).
 
 # Guides
