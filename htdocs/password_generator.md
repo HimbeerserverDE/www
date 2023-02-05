@@ -12,10 +12,11 @@ and seeds it with cryptographically secure random data.
 
 It gets this data by reading 64 bytes from `/dev/random`
 and adding their ASCII codes together in a loop.
-In this step the number of possible combinations is reduced
+In this step the number of possible seeds is reduced
 from `256^64` to just `256*64`.
 
-It is trivial to use this knowledge to generate all possible passwords.
+It is trivial to use this knowledge to generate all possible seeds
+and the passwords generated from them.
 This only takes about a second even on my slow machine. The list
 can then be used in a dictionary attack.
 
