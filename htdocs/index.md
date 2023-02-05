@@ -1,11 +1,11 @@
 % HimbeerserverDE
 
 # Introduction
-I'm Himbeer, a 15 year old programmer and sysadmin. I like networking, especially IPv6
-(which is why this page is IPv6-only). Because of this I'm using my own
-networking hardware and software instead of the low quality device
-the ISP wants everyone to use that lacks basic configuration options
-like the DHCP DNS server option.
+I'm Himbeer, a 16 year old developer and sysadmin.
+I like networking, especially IPv6 (which is why this page is IPv6-only).
+Because of this I'm using my own networking hardware and software
+instead of the low quality device the ISP wants everyone to use
+that lacks basic configuration options like the DHCP DNS server option.
 
 I created [mt-multiserver-proxy](/cgi-bin/work.lua?project=minetestproxy),
 a reverse proxy for the Minetest network protocol. It connects multiple
