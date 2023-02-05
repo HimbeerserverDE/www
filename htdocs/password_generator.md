@@ -1,7 +1,7 @@
 % Password Generator
 
 This page generates a few passwords *on the server* and displays them to the user.
-The code can be found [on GitHub](https://github.com/HimbeerserverDE/www.himbeerserver.de/blob/main/himbeerserver/usr/lib/cgi-bin/password_generator.lua).
+The code can be found [on GitHub](https://github.com/HimbeerserverDE/www/blob/master/cgi-bin/password_generator.lua).
 
 # Security issue
 
