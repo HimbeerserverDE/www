@@ -38,7 +38,7 @@ understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 * **IRC (oftc.net):** HimbeerserverDE
 * **Email (S/MIME):** [himbeerserverde@gmail.com](mailto:himbeerserverde@gmail.com)
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
-* **Matrix:** [\@himbeer_:matrix.org](https://matrix.to/#/@himbeer__:matrix.org)
+* **Matrix:** [\@himbeer_:matrix.org](https://matrix.to/#/@himbeer_:matrix.org)
 
 # Work
 _If you have any suggestions on what to put on this list please
