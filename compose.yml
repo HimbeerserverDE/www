@@ -14,4 +14,7 @@ services:
       - type: bind
         source: ./.well-known
         target: /usr/local/apache2/htdocs/.well-known
+      - type: bind
+        source: ./git
+        target: /usr/local/apache2/git
     restart: always
