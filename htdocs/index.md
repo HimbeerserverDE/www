@@ -26,6 +26,11 @@ You can find everything
 I occasionally upload setup guides for services that are difficult to
 understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 
+# PGP Keys
+
+* **2152D04DBFFE3567CD15F58BA3D3E205DA0B0401**: Commit signing. [download](/pgp/2152D04DBFFE3567CD15F58BA3D3E205DA0B0401.pgp)
+* **F740BD951299D26B8B4FF28B2E6C9B91802EDCC4**: Public [email](mailto:himbeerserverde@gmail.com). [download](/pgp/F740BD951299D26B8B4FF28B2E6C9B91802EDCC4.pgp)
+
 # Profiles
 ## Code Hosting
 * **HimbeerGit**: Independent mirror of some of my projects: [git.himbeerserver.de](https://git.himbeerserver.de)
