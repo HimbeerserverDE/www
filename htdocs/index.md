@@ -61,6 +61,7 @@ proxy for Minetest
 a plugin providing standard chat commands for mt-multiserver-proxy
 * [A simple online password generator](/cgi-bin/password_generator.lua)
 * [This website](/cgi-bin/work.lua?project=www3)
+* [rsdsl](/cgi-bin/rsdsl.lua), a Vodafone DSL router written from scratch in Rust
 
 ## Minetest mods
 * [dynamic_liquid](/cgi-bin/work.lua?project=dynamicliquid), a fork of
