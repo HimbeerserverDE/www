@@ -33,8 +33,7 @@ understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 
 # Profiles
 ## Code Hosting
-* **HimbeerGit**: Independent mirror of some of my projects: [git.himbeerserver.de](https://git.himbeerserver.de)
-
+* **HimbeerGit**: [git.himbeerserver.de](https://git.himbeerserver.de) | Independent mirror. As of now GitHub is still preferred.
 * **GitHub:** [HimbeerserverDE](https://github.com/HimbeerserverDE)
 * **GitLab:** [HimbeerserverDE](https://gitlab.com/HimbeerserverDE)
 * **Bitbucket:** [HimbeerserverDE](https://bitbucket.org/HimbeerserverDE)
