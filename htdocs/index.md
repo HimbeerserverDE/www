@@ -1,11 +1,10 @@
-% HimbeerserverDE
+% Hi, I'm Himbeer!
 
 # Introduction
-I'm Himbeer, a 16 year old developer and sysadmin.
+I'm a hobbyist programmer and sysadmin.
 I like networking, especially IPv6 (which is why this page is IPv6-only).
 Because of this I'm using my own networking hardware and software
-instead of the low quality device the ISP wants everyone to use
-that lacks basic configuration options like the DHCP DNS server option.
+written in Rust. You can read more about it [here](/cgi-bin/rsdsl.lua).
 
 I created [mt-multiserver-proxy](/cgi-bin/work.lua?project=minetestproxy),
 a reverse proxy for the Minetest network protocol. It connects multiple
@@ -15,8 +14,9 @@ CPUs.
 
 I also made some small web apps in the past that I'll eventually publish here.
 
-I use Artix, OpenWrt, Debian and Raspberry Pi OS actively,
+I use Artix, Debian and Raspberry Pi OS actively,
 but I'd probably be able to use some other distros if I wanted to.
+I've used Ubuntu and OpenWrt in the past.
 My window manager is
 [bspwm](https://github.com/baskerville/bspwm) with a custom setup.
 You can find everything
@@ -27,18 +27,25 @@ I occasionally upload setup guides for services that are difficult to
 understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 
 # Profiles
+## Code Hosting
+* **HimbeerGit**: Independent mirror of some of my projects: [git.himbeerserver.de](https://git.himbeerserver.de)
+
 * **GitHub:** [HimbeerserverDE](https://github.com/HimbeerserverDE)
 * **GitLab:** [HimbeerserverDE](https://gitlab.com/HimbeerserverDE)
 * **Bitbucket:** [HimbeerserverDE](https://bitbucket.org/HimbeerserverDE)
 * **MeseHub:** [HimbeerserverDE](https://git.minetest.land/HimbeerserverDE)
+
+## Preferred Communication Services
+* **Email (S/MIME or PGP supported):** [himbeerserverde@gmail.com](mailto:himbeerserverde@gmail.com)
+* **Matrix:** [\@himbeer:himbeerserver.de](https://matrix.to/#/@himbeer:himbeerserver.de)
+
+## Social
 * **Discord:** HimbeerserverDE#3585
 * **YouTube:** [HimbeerserverDE](https://www.youtube.com/channel/UCRuSC9WNapuA4Gm-kU_gjGA)
 * **Reddit:** [HimbeerserverDE](https://reddit.com/user/HimbeerserverDE)
 * **IRC (libera.chat):** HimbeerserverDE
 * **IRC (oftc.net):** HimbeerserverDE
-* **Email (S/MIME):** [himbeerserverde@gmail.com](mailto:himbeerserverde@gmail.com)
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
-* **Matrix:** [\@himbeer_:matrix.org](https://matrix.to/#/@himbeer_:matrix.org)
 
 # Work
 _If you have any suggestions on what to put on this list please
@@ -129,7 +136,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 This is a list of my friends with links to their main online presence
 if they have one.
 
-* [Fleckenstein](https://fleckenstein.elidragon.tk)
+* [Fleckenstein](https://lizzy.rs)
 * [DerZombiiie](https://derzombiiie.com)
 * [j45](https://j1233.minetest.land)
 * [TheodorSmall](https://github.com/TheodorSmall)
