@@ -61,7 +61,7 @@ a plugin providing standard chat commands for mt-multiserver-proxy
 * [A simple online password generator](/cgi-bin/password_generator.lua)
 * [This website](/cgi-bin/work.lua?project=www3)
 * [Rustkrazy](/cgi-bin/rustkrazy.lua), an ecosystem for developing minimalistic
-Linux-based pure Rust appliances.
+Linux-based pure Rust appliances
 * [rsdsl](/cgi-bin/rsdsl.lua), a Vodafone DSL router written from scratch in Rust
 
 ## Minetest mods
