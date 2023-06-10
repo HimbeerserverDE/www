@@ -44,7 +44,7 @@ understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 * **Matrix:** [\@himbeer:himbeerserver.de](https://matrix.to/#/@himbeer:himbeerserver.de)
 
 ## Social
-* **Discord:** HimbeerserverDE#3585
+* **Discord:** Himbeer#3585 | **IGNORED AND LIKELY TO BE DELETED.** Switch to [Matrix](https://matrix.to/#/@himbeer:himbeerserver.de)
 * **YouTube:** [HimbeerserverDE](https://www.youtube.com/channel/UCRuSC9WNapuA4Gm-kU_gjGA)
 * **IRC (libera.chat):** HimbeerserverDE
 * **IRC (oftc.net):** HimbeerserverDE
