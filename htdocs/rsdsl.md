@@ -71,7 +71,8 @@ This is the second most important program running on the system.
 It is what connects to the outside world.
 To do so it utilizes the PPPoE standard, only implementing a bare minimum.
 PPP has a wide variety of authentication protocols to choose from, out of which
-this implementation supports CHAP and PAP.
+this implementation supports CHAP-MD5 and PAP.
+With this ISP only CHAP is used in practice.
 If the session disconnects or can't be established in the first place
 the client will retry until it succeeds.
 It currently does not have support for native IPv6 via IPv6CP and DHCPv6
@@ -196,7 +197,7 @@ this is why.
 
 ## 6in4
 Since the ISP doesn't offer native IPv6 this service
-configure the local endpoint of a
+configures the local endpoint of a
 Hurricane Electric / [tunnelbroker.net](https://tunnelbroker.net) tunnel.
 The configuration has to be provided to it at `/data/he6in4.conf`
 in a simple JSON format. It needs to contain the tunnel server
