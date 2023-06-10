@@ -46,7 +46,6 @@ understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 ## Social
 * **Discord:** HimbeerserverDE#3585
 * **YouTube:** [HimbeerserverDE](https://www.youtube.com/channel/UCRuSC9WNapuA4Gm-kU_gjGA)
-* **Reddit:** [HimbeerserverDE](https://reddit.com/user/HimbeerserverDE)
 * **IRC (libera.chat):** HimbeerserverDE
 * **IRC (oftc.net):** HimbeerserverDE
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
