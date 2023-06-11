@@ -28,8 +28,8 @@ understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
 
 # PGP Keys
 
-* **2152D04DBFFE3567CD15F58BA3D3E205DA0B0401**: Commit signing. [download](/pgp/2152D04DBFFE3567CD15F58BA3D3E205DA0B0401.pgp)
-* **F740BD951299D26B8B4FF28B2E6C9B91802EDCC4**: Public [email](mailto:himbeerserverde@gmail.com). [download](/pgp/F740BD951299D26B8B4FF28B2E6C9B91802EDCC4.pgp)
+* **2152D04DBFFE3567CD15F58BA3D3E205DA0B0401**: Commit signing. [download](/pgp/2152D04DBFFE3567CD15F58BA3D3E205DA0B0401.asc)
+* **F740BD951299D26B8B4FF28B2E6C9B91802EDCC4**: Public [email](mailto:himbeerserverde@gmail.com). [download](/pgp/F740BD951299D26B8B4FF28B2E6C9B91802EDCC4.asc)
 
 # Profiles
 ## Code Hosting
