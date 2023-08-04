@@ -250,7 +250,7 @@ and packets but the kernel is going to take care of the interface
 and data transmission and reception.
 
 Due to its complexity the kernel interfacing is handled by C bindings
-which is seemingly safely wrapped by Rust code.
+which are seemingly safely wrapped by Rust code.
 Since we want to know how the kernel interface works
 we're going to look at the C code.
 
