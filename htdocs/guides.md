@@ -11,5 +11,6 @@ or that I've struggled with for a long time.
 * [OpenVPN IPv6](/cgi-bin/guide/ovpnip6.lua)
 * [Encrypting existing drives](/cgi-bin/guide/cryptexisting.lua)
 * [Write your own PPP(oE) client with kernel mode tunneling](/cgi-bin/guide/kppp.lua)
+* [Write your own ip-tunnel](/cgi-bin/guide/iproute2tun.lua)
 
 [Return to Index Page](/cgi-bin/index.lua)
