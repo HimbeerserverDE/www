@@ -29,6 +29,15 @@ is a core component of DS-Lite.
 These tunnels require kernel support and can be configured
 using the `ip tunnel` subcommand.
 
+Support is enabled by building Linux with the following flags:
+
+```
+CONFIG_NET_IP_TUNNEL=y
+CONFIG_INET_TUNNEL=y
+CONFIG_INET6_TUNNEL=y
+CONFIG_IPV6_TUNNEL=y
+```
+
 # So how does it work?
 
 Unlike most other types of network interfaces tunnels don't require netlink
@@ -89,6 +98,10 @@ Also unlike the more complex PPP driver the tunneling code
 does not delete the interface when your application exits.
 If this is unwanted behavior you need to call a deletion function
 before exiting which can even be automated using Rust's destructors.
+
+An interesting fact to note is that the MTU is automatically calculated
+from the overhead and the parent MTU. Because of this it's always going to be
+correct, even if you're tunneling through PPPoE.
 
 # Deletion
 
