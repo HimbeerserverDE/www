@@ -63,7 +63,7 @@ int fd = socket(AF_INET, SOCK_DGRAM, IPPROTO_IP);
 
 not including any error handling. `IPPROTO_IP` is zero.
 
-Here's the `ioctl` we have to prepare:
+Here's the `ioctl` we have to prepare to create a 4in4 tunnel:
 
 ```
 struct ip_tunnel_parm p;
