@@ -344,7 +344,7 @@ int ctlfd = open("/dev/ppp", O_RDWR);
 ioctl(ctlfd, PPPIOCATTCHAN, &chindex);
 ```
 
-This is where LCP and authentication packets will arrive. However
+This is where LCP and authentication packets are going to arrive. However
 the full PPP header is included (PPPoE is not).
 
 Finally we create a generic PPP unit. This is the actual `ppp0` interface
