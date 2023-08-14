@@ -36,6 +36,8 @@ CONFIG_NET_IP_TUNNEL=y
 CONFIG_INET_TUNNEL=y
 CONFIG_INET6_TUNNEL=y
 CONFIG_IPV6_TUNNEL=y
+CONFIG_IPV6_SIT=y
+CONFIG_NFT_TUNNEL=y
 ```
 
 # So how does it work?
@@ -71,6 +73,7 @@ struct ip_tunnel_parm p;
 strcpy(p.name, "footnl0");
 p.iph.version = 4; // outer protocol
 p.iph.ihl = 5;
+p.iph.ttl = 64;
 p.iph.protocol = IPPROTO_IPIP; // inner protocol
 p.iph.saddr = /* our address as big-endian u32 */
 p.iph.daddr = /* remote address as big-endian u32 */
