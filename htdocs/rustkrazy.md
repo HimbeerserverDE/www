@@ -112,7 +112,7 @@ It can be used to remotely flash instances using the `updater` program.
 It also adds support for remote rebooting, shutdown, switching root partitions,
 manually flashing the block device or partitions, reading files and writing files.
 Reading files is especially useful since the `rustkrazy_init`
-writes program logs and stderr to `/data/SERVICE.log` and `/data/SERVICE.err`
+writes program logs and stderr to `/tmp/SERVICE.log` and `/tmp/SERVICE.err`
 respectively (separated for simplicity of code) where `SERVICE`
 is the binary file name. This API allows you to remotely access the logs
 if you need to.
