@@ -12,5 +12,6 @@ or that I've struggled with for a long time.
 * [Encrypting existing drives](/cgi-bin/guide/cryptexisting.lua)
 * [Write your own PPP(oE) client with kernel mode tunneling](/cgi-bin/guide/kppp.lua)
 * [Write your own ip-tunnel](/cgi-bin/guide/iproute2tun.lua)
+* [IPv6 mit Vodafone DSL](/cgi-bin/guide/vf6.lua) (DE)
 
 [Return to Index Page](/cgi-bin/index.lua)
