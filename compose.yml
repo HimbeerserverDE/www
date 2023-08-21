@@ -1,6 +1,7 @@
 services:
   www:
     build: .
+    container_name: www
     ports:
       - "80:80"
       - "443:443"
