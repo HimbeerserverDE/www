@@ -1,6 +1,7 @@
 networks:
   httpsvc:
     name: httpsvc
+    external: true
 services:
   www:
     build: .
