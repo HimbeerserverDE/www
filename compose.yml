@@ -1,7 +1,12 @@
+networks:
+  httpsvc:
+    name: httpsvc
 services:
   www:
     build: .
     container_name: www
+    networks:
+      - httpsvc
     volumes:
       - type: bind
         source: ./.well-known
