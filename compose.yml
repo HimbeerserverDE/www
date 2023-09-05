@@ -9,7 +9,4 @@ services:
       - type: bind
         source: ./.well-known
         target: /usr/local/apache2/htdocs/.well-known
-      - type: bind
-        source: ./.well-known
-        target: /usr/local/apache2/gitweb/.well-known
     restart: always
