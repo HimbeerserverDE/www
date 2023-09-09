@@ -227,7 +227,7 @@ So how do we implement a client?
 There are two ways in which we can do this.
 The first one is handling everything in userspace
 and offering a TUN device to the OS.
-This is what [rsdsl_pppoe](https://github.com/rsdsl/pppoe.git) does.
+This is what [rsdsl_pppoe](https://git.himbeerserver.de/rsdsl/pppoe.git) does.
 However the overhead is quite substantial, even in Rust.
 Its safety constraints also make efficient packet tunneling very challenging.
 The current implementation suffers from bufferbloat so the latency increases
@@ -378,7 +378,7 @@ as well as two PPP file descriptors for link synchronization and authentication
 as well as the network configuration protocols.
 What's cool is that the kernel automatically creates a working `ppp0`
 interface for us. It's down initially but it can manually be brought up
-and configured with the addresses by [netlinkd](https://github.com/rsdsl/netlinkd.git).
+and configured with the addresses by [netlinkd](https://git.himbeerserver.de/rsdsl/netlinkd.git).
 
 This was very frustrating to find out and took a long time.
 Have fun writing your own kernel mode PPPoE clients using this knowledge.

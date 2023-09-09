@@ -13,8 +13,7 @@ Repositories
 ============
 
 Up-to-date versions of all components and some common or forked libraries
-can be found on [my own git server](https://git.himbeerserver.de/rsdsl)
-or on [GitHub](https://github.com/rsdsl).
+can be found on [my git server](https://git.himbeerserver.de/rsdsl).
 
 Platforms
 =========
@@ -184,7 +183,7 @@ Packet filtering is not strictly required for the internet connection to work,
 but with IPv4 NAT is. Having this component also allows for port forwarding rules
 to exist. On top of this it is used to secure the internal networks
 from the outside world and from each other with some exceptions.
-See the [source code](https://github.com/rsdsl/netfilterd/blob/master/src/main.rs)
+See the [source code](https://git.himbeerserver.de/rsdsl/netfilterd.git/tree/src/main.rs)
 for the exact ruleset.
 
 Notably ICMP and ICMPv6 are always allowed for debugging purposes.

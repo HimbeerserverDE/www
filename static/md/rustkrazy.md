@@ -11,8 +11,7 @@ It can turn your Rust programs into appliances.
 Repositories
 ============
 
-The repositories on [my own git server](https://git.himbeerserver.de/rustkrazy)
-and on [GitHub](https://github.com/rustkrazy) are kept up-to-date.
+The repositories can be found on [my git server](https://git.himbeerserver.de/rustkrazy).
 
 Why
 ===
@@ -123,7 +122,7 @@ However there is no easy way to discover the crate name
 from a git URL and it's possible for more than one to exist
 per repository.
 It is for this reason that the URLs may be succeeded by a percentage sign
-and the actual crate name, e.g. `https://github.com/rustkrazy/init.git%rustkrazy_init`.
+and the actual crate name, e.g. `git://himbeerserver.de/rustkrazy/init.git%rustkrazy_init`.
 If omitted the image manipulation commands default to the repository name
 which is "init" in our example.
 
