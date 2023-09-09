@@ -109,8 +109,13 @@ ohne Gateway über die PPP-Schnittstelle ebenso funktioniert.
 Per DHCPv6 wird maximal ein /56-Präfix und zwei DNS-Server zugewiesen.
 Bei DS-Lite gibt es zusätzlich einen AFTR.
 
-Ob das zugewiesene Präfix statisch ist, konnte ich noch nicht feststellen.
-Vermutlich ist dies nur bedingt der Fall.
+~~Ob das zugewiesene Präfix statisch ist, konnte ich noch nicht feststellen.
+Vermutlich ist dies nur bedingt der Fall.~~
+
+Das Präfix ist dynamisch mit vielen potentiellen Faktoren für die Neuvergabe.
+Durch Beenden der Sitzung verliert es sofort seine Gültigkeit. Es kann ein
+Neuverbinden manchmal überleben und bleibt bei konstanter Verbindung beliebig
+lange gültig.
 
 Bemerkenswert ist, dass keine einzelne WAN-Adresse an den Router selbst
 vergeben wird, anders als es bei Kabel-Internet der Fall ist.
