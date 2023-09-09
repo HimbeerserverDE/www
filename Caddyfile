@@ -1,0 +1,10 @@
+{
+	auto_https off
+}
+
+http://himbeerserver.de {
+	handle {
+		root * /srv/caddy
+		file_server
+	}
+}

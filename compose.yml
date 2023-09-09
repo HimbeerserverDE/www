@@ -10,6 +10,12 @@ services:
       - httpsvc
     volumes:
       - type: bind
-        source: ./.well-known
-        target: /usr/local/apache2/htdocs/.well-known
-    restart: always
+        source: Caddyfile
+        target: /etc/caddy/Caddyfile
+      - www_config:/config
+      - www_data:/data
+    restart: unless-stopped
+volumes:
+  www_config:
+  www_data:
+    external: true
