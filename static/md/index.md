@@ -1,182 +1,32 @@
 ---
-title: Hi, I'm Himbeer!
+title: Welcome to the Himbeerserver!
 ---
 
-Introduction
-============
+This is my personal website I use to publish my projects,
+[guides](/md/guides.md), [contact info](/md/contact.md) and more.
 
-I'm a hobbyist programmer and sysadmin.
-I like networking, especially IPv6 (which is why this page is IPv6-only).
-Because of this I'm using my own networking hardware and software
-written in Rust. You can read more about it [here](/md/rsdsl.md).
+Notable projects include a [reverse proxy for Minetest](/md/mt/proxy.md),
+the [rustkrazy](/md/rustkrazy.md) appliance platform
+and a [dyndns client](https://git.himbeerserver.de/dyndns-rs.git/about)
+for INWX with reasonable IPv6 prefix updating.
 
-I created [mt-multiserver-proxy](/md/mt/proxy.md),
-a reverse proxy for the Minetest network protocol. It connects multiple
-Minetest servers together. Since Minetest does almost everything in a single
-thread this can help increase performance by taking advantage of multi-core
-CPUs.
+Services / Quick Links
+======================
 
-I also made some small web apps in the past that I'll eventually publish here.
+* [Guides](/md/guides.md)
+* [Git](https://git.himbeerserver.de)
+* Matrix (HTTPS/TCP port 443)
 
-I use Artix, Debian and Raspberry Pi OS actively,
-but I'd probably be able to use some other distros if I wanted to.
-I've used Ubuntu and OpenWrt in the past.
-My window manager is
-[bspwm](https://github.com/baskerville/bspwm) with a custom setup.
-You can find everything
-[here](https://github.com/HimbeerserverDE/bspwm-setup).
+* [mt-multiserver-proxy](/md/mt/proxy.md)
+* [mt-multiserver-chatcommands](/mt/mt/proxy.md#commands)
+* [rustkrazy](/md/rustkrazy.md)
+* [rsdsl](/md/rsdsl.md)
 
-Guides
-======
+More websites you might be interested in
+========================================
 
-I occasionally upload setup guides for services that are difficult to
-understand, configure or maintain. They are listed [here](/md/guides.md).
-
-PGP Keys
-========
-
-* **2152D04DBFFE3567CD15F58BA3D3E205DA0B0401**: Commit signing. [download](/pgp/2152D04DBFFE3567CD15F58BA3D3E205DA0B0401.asc)
-* **F740BD951299D26B8B4FF28B2E6C9B91802EDCC4**: Public [email](mailto:himbeerserverde@gmail.com). [download](/pgp/F740BD951299D26B8B4FF28B2E6C9B91802EDCC4.asc)
-
-Profiles
-========
-
-Code Hosting
-------------
-
-* **HimbeerGit**: [git.himbeerserver.de](https://git.himbeerserver.de) | Independent mirror. As of now GitHub is still preferred.
-* **GitHub:** [HimbeerserverDE](https://github.com/HimbeerserverDE)
-* **GitLab:** [HimbeerserverDE](https://gitlab.com/HimbeerserverDE)
-* **Bitbucket:** [HimbeerserverDE](https://bitbucket.org/HimbeerserverDE)
-* **MeseHub:** [HimbeerserverDE](https://git.minetest.land/HimbeerserverDE)
-
-Preferred Communication Services
---------------------------------
-
-* **Email (S/MIME or PGP supported):** [himbeerserverde@gmail.com](mailto:himbeerserverde@gmail.com)
-* **Matrix:** [\@himbeer:himbeerserver.de](https://matrix.to/#/@himbeer:himbeerserver.de)
-
-Social
-------
-
-* **Discord:** Himbeer#3585 | **IGNORED AND LIKELY TO BE DELETED.** Switch to [Matrix](https://matrix.to/#/@himbeer:himbeerserver.de)
-* **YouTube:** [HimbeerserverDE](https://www.youtube.com/channel/UCRuSC9WNapuA4Gm-kU_gjGA)
-* **IRC (libera.chat):** HimbeerserverDE
-* **IRC (oftc.net):** HimbeerserverDE
-* **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
-
-Work
-====
-
-_If you have any suggestions on what to put on this list please
-[contact me](#profiles)!_
-
-* [mt-multiserver-proxy](/md/mt/proxy.md), a reverse
-proxy for Minetest
-* [mt-multiserver-chatcommands](/md/mt/proxy.md#commands),
-a plugin providing standard chat commands for mt-multiserver-proxy
-* [This website](/md/www3.md)
-* [Rustkrazy](/md/rustkrazy.md), an ecosystem for developing minimalistic
-Linux-based pure Rust appliances
-* [rsdsl](/md/rsdsl.md), a Vodafone DSL router written from scratch in Rust
-
-Minetest mods
--------------
-
-* [dynamic_liquid](/md/mt_mod/dynamic_liquid.lua), a fork of
-[minetest-mods/dynamic_liquid](https://github.com/minetest-mods/dynamic_liquid)
-* [waterworks](/md/mt_mod/waterworks.lua), a fork of
-[FaceDeer/waterworks](https://github.com/FaceDeer/waterworks) that actually
-does what the documentation says
-
-Skills
-======
-
-This is a list of the languages and tools I'm able to use at the moment.
-
-Languages
----------
-
-* C
-* C++
-* Go
-* HTML
-* CSS
-* JavaScript
-* Lua
-* Java
-* Bash
-* PHP
-* SQL
-* Rust
-* Python
-
-Software
---------
-
-### Server
-
-* Apache
-* nginx
-* SQLite3
-* MySQL
-* MariaDB
-* PostgreSQL
-* fail2ban
-* slapd
-* Kerberos
-* DNSMASQ
-* WIDE-DHCPv6-Client
-* dibbler-server
-* LWDS-Lite
-* OpenVPN
-* FOG
-* PXE
-* iPXE
-* LTSP
-* NFS
-
-### Client
-
-* ldap-utils
-* sssd
-* PAM
-* GRUB2
-* GCC
-* G++
-* GNU Make
-* CMake
-* GDB
-* GIMP
-* Blender
-* OpenShot
-* NetworkManager
-* Kerberos
-* NFS
-
-APIs / Libraries / Frameworks
------------------------------
-
-* node.js
-* jQuery
-* OpenGL core v3.0+
-* GLFW
-* linmath.h
-* Minetest
-* Flask
-
-Friends
-=======
-
-This is a list of my friends with links to their main online presence
-if they have one.
-
-* [Fleckenstein](https://lizzy.rs)
-* [DerZombiiie](https://derzombiiie.com)
-* [j45](https://j1233.minetest.land)
-* [TheodorSmall](https://github.com/TheodorSmall)
-* [SC++](https://github.com/scplusplus)
-* [Rapunzel](https://github.com/RapunzelE)
-* [anon5](https://github.com/anon55555)
-* Typischer
-* yayyer
+* [anon5's GitHub](https://github.com/anon55555)
+* [DerZombiiie](https://blog.derzombiiie.com)
+* [j45.dev](https://j45.dev)
+* [lizzy.rs](https://lizzy.rs)
+* [Michael Stapelberg](https://michael.stapelberg.ch) (distri, gokrazy, i3)
