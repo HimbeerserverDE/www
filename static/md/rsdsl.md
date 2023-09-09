@@ -269,8 +269,8 @@ The ISP provided nameservers are ignored for simplicity reasons.
 This program is fully capable of resolving AAAA records
 and accepting IPv6 packets. The network design makes it impossible
 to resolve local AAAA records though.
-It also results in NXDOMAIN errors below the IPv4 address in nslookups
-if no IPv6 addresses exist for a given hostname.
+~~It also results in NXDOMAIN errors below the IPv4 address in nslookups
+if no IPv6 addresses exist for a given hostname.~~
 Amazingly it doesn't add any measurable latency.
 If a local hostname is present on multiple interfaces,
 the interface the request originated from is prioritised
@@ -336,7 +336,7 @@ If the unix epoch and the actual time are mixed in your logs this is why.
 6in4
 ----
 
-Since the ISP doesn't offer native IPv6 this service
+~~Since the ISP doesn't offer native IPv6~~ This service
 configures the local endpoint of a
 Hurricane Electric / [tunnelbroker.net](https://tunnelbroker.net) tunnel.
 The configuration has to be provided to it at `/data/he6in4.conf`
@@ -347,8 +347,8 @@ the update URL for the endpoint address.
 
 This program only works if native IPv4 is available.
 If native IPv6 is available it still establishes the tunnel
-but doesn't add a default route. This hopefully won't break anything.
-We'll see once native IPv6 becomes available here.
+but doesn't add a default route. This ~~hopefully won't~~ doesn't break anything.
+~~We'll see once native IPv6 becomes available here.~~
 I'd recommend against using this if native connectivity is provided
 by your ISP.
 
@@ -394,7 +394,9 @@ Again this is behavior that cannot be relied on.
 When it changes all octets completely change in most cases. In most other cases
 only the last octet is changed.
 
-I don't know about IPv6 yet.
+~~I don't know about IPv6 yet.~~
+
+The IPv6 prefix is similarly dynamic.
 
 IPv6 support
 ------------
@@ -406,13 +408,16 @@ results in a Protocol-Reject on IPv6CP negotiation if attempted
 and the AC doesn't send a Configure-Request of its own.
 
 The ISP's web portal says `Configuration: IPv4`. Apparently other values
-include `Dual Stack` and `DS Lite`, though they seem to be quite rare.
-According to the forums even the employees don't know what's going to be used
-for new contracts, but `Dual Stack` is never the default.
+include ~~`Dual Stack`~~ `IPv6/v4 public` and `DS Lite`, though they seem to be
+quite rare. According to the forums even the employees don't know what's going
+to be used for new contracts, but `Dual Stack` is never the default.
 
 Since the AC I'm connected to seems to be IPv6 capable I'm going to ask
 for Dual Stack to be enabled. Just to be safe I implemented DS-Lite.
 You never know if they stick to your orders and being prepared is certainly
 better than suddenly being unable to reach half of the internet.
+
+*Update: IPv6 is available but is disabled by default.
+See [IPv6 mit Vodafone DSL](/md/guide/vf6.md) (DE) for details.*
 
 [Return to Index Page](/md/index.md)
