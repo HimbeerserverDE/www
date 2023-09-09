@@ -3,8 +3,44 @@
 }
 
 http://himbeerserver.de {
-	handle {
-		root * /srv/caddy
+	root * /srv/caddy
+
+	file_server
+	templates
+
+	redir / /md/index.md permanent
+
+	@base {
+		path /base/*
+		not path /base/*.css
+	}
+
+	@markdown {
+		path_regexp /md/.*\.md$
+	}
+
+	@well_known {
+		path /favicon.ico
+	}
+
+	handle @markdown {
+		rewrite * /base/render.html
+	}
+
+	handle @well_known {
 		file_server
+	}
+
+	handle @base {
+		error 403
+	}
+
+	handle_errors {
+		file_server
+		templates
+
+		handle {
+			rewrite * /base/error.html
+		}
 	}
 }

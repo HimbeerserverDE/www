@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+{{ $markdownFile := (include .OriginalReq.URL.Path | splitFrontMatter) }}
+{{ $title := default .OriginalReq.URL.Path $markdownFile.Meta.title }}
+
+<html>
+	<head>
+		<title>{{ $title }}</title>
+		<meta property="og:title" content="{{ $title }}">
+	
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<main>
+			<article>{{ markdown $markdownFile.Body }}</article>
+		</main>
+	</body>
+</html>
