@@ -35,3 +35,5 @@ This is a TLS-like alternative to PGP email encryption that's easier to use.
 I have a certificate, though the CA doesn't accept CSRs. Instead they generate
 the private key for you. Because of this *the CA is able to decrypt protected
 messages*, so please use PGP or Matrix instead if you want true secrecy.
+
+[Return to Index Page](/md/index.md)
