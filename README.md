@@ -3,8 +3,7 @@
 Himbeerserver v3, formerly known as
 [www.himbeerserver.de](https://github.com/HimbeerserverDE/www.himbeerserver.de).
 
-This is a simple static markdown website with a Lua preprocessor
-allowing dynamic content for placeholders in the markdown source.
+This is a simple static markdown website powered by pandoc and caddy.
 
 No JavaScript is used, but there is a global CSS stylesheet.
 
