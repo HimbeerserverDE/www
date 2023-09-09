@@ -1,6 +1,10 @@
-% rtl8812au WiFi driver setup on RPi@5.10.103-v7l
+---
+title: rtl8812au WiFi driver setup on RPi@5.10.103-v7l
+---
 
-# The Problem
+The Problem
+===========
+
 WiFi drivers on Linux are already annoying enough, and it's gotten even worse
 with the 5.10.103 kernel. This version is no longer compatible with the
 [install-wifi script](http://downloads.fars-robotics.net/wifi-drivers/install-wifi).
@@ -9,7 +13,9 @@ breaking NDP and preventing you from automatically connecting to the IPv6 intern
 Fortunately aircrack-ng maintains a working version of the driver. However it has
 to be compiled from source. Here's how.
 
-# Kernel Headers
+Kernel Headers
+==============
+
 You may need to install the raspberry pi kernel headers.
 The apt package name is `raspberrypi-kernel-headers`.
 If you're using the 64-bit RPi OS, make sure to install
@@ -17,11 +23,13 @@ the arm64 version of the package.
 Use `apt list raspberrypi-kernel-headers` to check if you have
 the correct version installed.
 
-# Installing
+Installing
+==========
+
 Run the following shell commands. If you aren't using sudo, run commands that
 require root access in some other way.
 
-```sh
+```
 sudo apt update && sudo apt install -y git dkms
 
 git clone https://github.com/aircrack-ng/rtl8812au.git
@@ -37,7 +45,7 @@ sudo make dkms_install
 
 **For 64-bit, these are the commands to run:**
 
-```sh
+```
 sudo apt update && sudo apt install -y git dkms
 
 git clone https://github.com/aircrack-ng/rtl8812au.git
@@ -54,11 +62,13 @@ sudo make dkms_install
 If the last command gives an error because the DKMS module already exists,
 remove any existing installations of the driver.
 
-# Loading
+Loading
+=======
+
 The driver should now automatically be loaded. It seems to be
 loaded at boot time automatically, but I haven't tested it yet.
 If you can confirm or disprove this please let me know.
 
-[Return to Guide List](/cgi-bin/guides.lua)
+[Return to Guide List](/md/guides.md)
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)

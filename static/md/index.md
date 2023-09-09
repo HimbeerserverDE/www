@@ -1,12 +1,16 @@
-% Hi, I'm Himbeer!
+---
+title: Hi, I'm Himbeer!
+---
 
-# Introduction
+Introduction
+============
+
 I'm a hobbyist programmer and sysadmin.
 I like networking, especially IPv6 (which is why this page is IPv6-only).
 Because of this I'm using my own networking hardware and software
-written in Rust. You can read more about it [here](/cgi-bin/rsdsl.lua).
+written in Rust. You can read more about it [here](/md/rsdsl.md).
 
-I created [mt-multiserver-proxy](/cgi-bin/work.lua?project=minetestproxy),
+I created [mt-multiserver-proxy](/md/mt/proxy.md),
 a reverse proxy for the Minetest network protocol. It connects multiple
 Minetest servers together. Since Minetest does almost everything in a single
 thread this can help increase performance by taking advantage of multi-core
@@ -22,59 +26,77 @@ My window manager is
 You can find everything
 [here](https://github.com/HimbeerserverDE/bspwm-setup).
 
-# Guides
-I occasionally upload setup guides for services that are difficult to
-understand, configure or maintain. They are listed [here](/cgi-bin/guides.lua).
+Guides
+======
 
-# PGP Keys
+I occasionally upload setup guides for services that are difficult to
+understand, configure or maintain. They are listed [here](/md/guides.md).
+
+PGP Keys
+========
 
 * **2152D04DBFFE3567CD15F58BA3D3E205DA0B0401**: Commit signing. [download](/pgp/2152D04DBFFE3567CD15F58BA3D3E205DA0B0401.asc)
 * **F740BD951299D26B8B4FF28B2E6C9B91802EDCC4**: Public [email](mailto:himbeerserverde@gmail.com). [download](/pgp/F740BD951299D26B8B4FF28B2E6C9B91802EDCC4.asc)
 
-# Profiles
-## Code Hosting
+Profiles
+========
+
+Code Hosting
+------------
+
 * **HimbeerGit**: [git.himbeerserver.de](https://git.himbeerserver.de) | Independent mirror. As of now GitHub is still preferred.
 * **GitHub:** [HimbeerserverDE](https://github.com/HimbeerserverDE)
 * **GitLab:** [HimbeerserverDE](https://gitlab.com/HimbeerserverDE)
 * **Bitbucket:** [HimbeerserverDE](https://bitbucket.org/HimbeerserverDE)
 * **MeseHub:** [HimbeerserverDE](https://git.minetest.land/HimbeerserverDE)
 
-## Preferred Communication Services
+Preferred Communication Services
+--------------------------------
+
 * **Email (S/MIME or PGP supported):** [himbeerserverde@gmail.com](mailto:himbeerserverde@gmail.com)
 * **Matrix:** [\@himbeer:himbeerserver.de](https://matrix.to/#/@himbeer:himbeerserver.de)
 
-## Social
+Social
+------
+
 * **Discord:** Himbeer#3585 | **IGNORED AND LIKELY TO BE DELETED.** Switch to [Matrix](https://matrix.to/#/@himbeer:himbeerserver.de)
 * **YouTube:** [HimbeerserverDE](https://www.youtube.com/channel/UCRuSC9WNapuA4Gm-kU_gjGA)
 * **IRC (libera.chat):** HimbeerserverDE
 * **IRC (oftc.net):** HimbeerserverDE
 * **Minetest (forum, in-game, ContentDB):** HimbeerserverDE
 
-# Work
+Work
+====
+
 _If you have any suggestions on what to put on this list please
 [contact me](#profiles)!_
 
-* [mt-multiserver-proxy](/cgi-bin/work.lua?project=minetestproxy), a reverse
+* [mt-multiserver-proxy](/md/mt/proxy.md), a reverse
 proxy for Minetest
-* [mt-multiserver-chatcommands](/cgi-bin/work.lua?project=minetestproxy#commands),
+* [mt-multiserver-chatcommands](/md/mt/proxy.md#commands),
 a plugin providing standard chat commands for mt-multiserver-proxy
-* [A simple online password generator](/cgi-bin/password_generator.lua)
-* [This website](/cgi-bin/work.lua?project=www3)
-* [Rustkrazy](/cgi-bin/rustkrazy.lua), an ecosystem for developing minimalistic
+* [This website](/md/www3.md)
+* [Rustkrazy](/md/rustkrazy.md), an ecosystem for developing minimalistic
 Linux-based pure Rust appliances
-* [rsdsl](/cgi-bin/rsdsl.lua), a Vodafone DSL router written from scratch in Rust
+* [rsdsl](/md/rsdsl.md), a Vodafone DSL router written from scratch in Rust
 
-## Minetest mods
-* [dynamic_liquid](/cgi-bin/work.lua?project=dynamicliquid), a fork of
+Minetest mods
+-------------
+
+* [dynamic_liquid](/md/mt_mod/dynamic_liquid.lua), a fork of
 [minetest-mods/dynamic_liquid](https://github.com/minetest-mods/dynamic_liquid)
-* [waterworks](/cgi-bin/work.lua?project=waterworks), a fork of
+* [waterworks](/md/mt_mod/waterworks.lua), a fork of
 [FaceDeer/waterworks](https://github.com/FaceDeer/waterworks) that actually
 does what the documentation says
 
-# Skills
+Skills
+======
+
 This is a list of the languages and tools I'm able to use at the moment.
 
-## Languages
+Languages
+---------
+
 * C
 * C++
 * Go
@@ -89,9 +111,11 @@ This is a list of the languages and tools I'm able to use at the moment.
 * Rust
 * Python
 
-## Software
+Software
+--------
 
 ### Server
+
 * Apache
 * nginx
 * SQLite3
@@ -113,6 +137,7 @@ This is a list of the languages and tools I'm able to use at the moment.
 * NFS
 
 ### Client
+
 * ldap-utils
 * sssd
 * PAM
@@ -129,7 +154,9 @@ This is a list of the languages and tools I'm able to use at the moment.
 * Kerberos
 * NFS
 
-## APIs / Libraries / Frameworks
+APIs / Libraries / Frameworks
+-----------------------------
+
 * node.js
 * jQuery
 * OpenGL core v3.0+
@@ -138,7 +165,9 @@ This is a list of the languages and tools I'm able to use at the moment.
 * Minetest
 * Flask
 
-# Friends
+Friends
+=======
+
 This is a list of my friends with links to their main online presence
 if they have one.
 

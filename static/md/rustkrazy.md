@@ -1,27 +1,39 @@
-% The Rustkrazy Project
+---
+title: The Rustkrazy Project
+---
 
-# About
+About
+=====
+
 Rustkrazy is heavily inspired by [Gokrazy](https://gokrazy.org).
 It can turn your Rust programs into appliances.
 
-# Repositories
-The repositories on [my own git server](https://git.himbeerserver.de/?a=project_list;pf=rustkrazy)
+Repositories
+============
+
+The repositories on [my own git server](https://git.himbeerserver.de/rustkrazy)
 and on [GitHub](https://github.com/rustkrazy) are kept up-to-date.
 
-# Why
+Why
+===
+
 Just like Gokrazy this project can help with eliminating
 the annoyances of administrating unsafe C software.
 The simplicity of the system and reduction of components
 to a bare minimum also makes maintenance and updating
 much safer and easier.
 
-# Supported Platforms
+Supported Platforms
+===================
+
 Officially supported and tested platforms:
 
 * x86_64 (tested: QEMU)
 * RPi 64-bit (tested: RPi 3B, RPi 4B)
 
-# How it works
+How it works
+============
+
 A Rustkrazy image consists of 4 MBR partitions:
 
 * /boot: 256 MiB FAT32 (LBA), contains kernel, cmdline, RPi config.txt, dtbs
@@ -35,7 +47,9 @@ sectors of the boot partition. Raspberry Pis use the firmware files instead.
 
 The A/B partitioning scheme allows for a safe update mechanism to be implemented.
 
-# Usage
+Usage
+=====
+
 Please refer to the respective repositories of the components
 for their documentation. The image related executables have command-line help.
 
@@ -43,7 +57,9 @@ The packer is used to generate images from scratch.
 The updater modifies an existing installation over the network.
 Regular users won't have to interact with any of the other tools.
 
-# The /boot Partition
+The /boot Partition
+===================
+
 Since we want a usable environment we need a kernel.
 The Linux kernel is a good choice for this.
 It resides on the boot partition of the image.
@@ -57,7 +73,9 @@ that make booting it possible. On Raspberry Pis it additionally requires
 the dtbs that are automatically added to the image.
 This filesystem is writable by the running system.
 
-# Root A/B
+Root A/B
+========
+
 There are two root partitions. Only one of them can be active at the same time.
 New images use partition A as the active rootfs by default.
 Updates using the new `admind` push the new binaries to the inactive root partition
@@ -68,17 +86,23 @@ to use the old version of your software and overwrite the broken one with your f
 This not only makes safe auto-updates possible. It makes them feasible.
 The kernel and firmware are updated to the latest pre-compiled version in the process.
 
-# The / Partitions
+The / Partitions
+================
+
 They contain the mountpoints for other filesystems like /proc, /sys, /dev, /tmp
 and /boot. Their /bin directory is home to the user-defined binaries and the init.
 
-# The /data Partition
+The /data Partition
+===================
+
 This is the perfect place for non-volatile storage of program information.
 If a program cannot work without a configuration file this is where to put it.
 It is never touched by system updates, but the different program versions
 should be able to deal with their own file formats correctly.
 
-# Inits
+Inits
+=====
+
 When building an image you need to specify an init.
 For simple single-program images it is often enough to use the program
 as the init unless you need access to (special) filesystems.
@@ -90,7 +114,9 @@ any interesting filesystems not including external media
 and restarts services as soon as they exit. It considers all files
 in /bin excluding /bin/init (itself) a service.
 
-# Git crate names
+Git crate names
+===============
+
 Cargo needs to know the exact names of the crates to install them.
 With crate registries like crates.io this isn't a problem.
 However there is no easy way to discover the crate name
@@ -101,12 +127,16 @@ and the actual crate name, e.g. `https://github.com/rustkrazy/init.git%rustkrazy
 If omitted the image manipulation commands default to the repository name
 which is "init" in our example.
 
-# Security
+Security
+========
+
 All processes on the system run as root by default.
 For the time being please consider implementing your own account system
 if you need more security.
 
-# admind
+admind
+======
+
 The admind provides an authenticated management API over HTTPS.
 It can be used to remotely flash instances using the `updater` program.
 It also adds support for remote rebooting, shutdown, switching root partitions,
@@ -117,4 +147,4 @@ respectively (separated for simplicity of code) where `SERVICE`
 is the binary file name. This API allows you to remotely access the logs
 if you need to.
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)

@@ -1,12 +1,16 @@
-% Write your own ip-tunnel
+---
+title: Write your own ip-tunnel
+---
 
-# Introduction
+Introduction
+============
 
 In this post we're going to explore how to create IP-in-IP tunnels
 without writing a userspace encapsulation driver.
 The main advantage here is keeping the userspace code clean and simple.
 
-# IP-in-IP tunnels
+IP-in-IP tunnels
+================
 
 This is a type of managed tunnel. It works by simply adding an outer IP header
 to the datagrams. The local and remote IP addresses have to be configured
@@ -40,7 +44,8 @@ CONFIG_IPV6_SIT=y
 CONFIG_NFT_TUNNEL=y
 ```
 
-# So how does it work?
+So how does it work?
+====================
 
 Unlike most other types of network interfaces tunnels don't require netlink
 configuration. Creating links like VLANs does require this,
@@ -48,7 +53,8 @@ but tunnels don't. Netlink is still used to change configuration parameters
 like the IP addresses but it's not involved in providing the creation
 and deletion API.
 
-# Let's reimplement it
+Let's reimplement it
+====================
 
 This could probably be implemented using unsafe Rust code without the need
 for C bindings, but they do make our life much easier.
@@ -106,7 +112,8 @@ An interesting fact to note is that the MTU is automatically calculated
 from the overhead and the parent MTU. Because of this it's always going to be
 correct, even if you're tunneling through PPPoE.
 
-# Deletion
+Deletion
+========
 
 Initialise a socket like you did when creating the tunnel.
 The request and `ioctl` call are different though:
@@ -127,6 +134,6 @@ ioctl(fd, SIOCDELTUNNEL, &ifr);
 Thankfully all of this is much simpler than PPP
 once you figure out how it works. Have fun with your cleanly created tunnels!
 
-[Return to Guide List](/cgi-bin/guides.lua)
+[Return to Guide List](/md/guides.md)
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)

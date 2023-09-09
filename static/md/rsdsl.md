@@ -1,20 +1,30 @@
-% The rsdsl Project
+---
+title: The rsdsl Project
+---
 
-# About
+About
+=====
+
 The rsdsl project is a collection of Rust programs
 that form a customized, yet simple router for Vodafone Germany DSL connections.
-It is designed to run on [Rustkrazy](/cgi-bin/rustkrazy.lua).
+It is designed to run on [Rustkrazy](/md/rustkrazy.md).
 
-# Repositories
+Repositories
+============
+
 Up-to-date versions of all components and some common or forked libraries
-can be found on [my own git server](https://git.himbeerserver.de/?a=project_list;pf=rsdsl)
+can be found on [my own git server](https://git.himbeerserver.de/rsdsl)
 or on [GitHub](https://github.com/rsdsl).
 
-# Platforms
+Platforms
+=========
+
 All Rustkrazy platforms should be supported,
 but testing is currently limited to the Raspberry Pi 3B.
 
-# Why
+Why
+===
+
 You may wonder why one would rewrite an entire router
 when there are existing solutions for it.
 OpenWrt is one such option. I had been using it for months
@@ -26,7 +36,9 @@ On top of this writing custom protocol implementations is a lot of fun.
 The network structure and ISP were about to change anyway.
 This is why I decided to build rsdsl for the new network.
 
-# Hardware
+Hardware
+========
+
 The LAN side of the router is connected via its builtin Ethernet interface.
 It is connected to a VLAN capable switch
 and tagged VLAN (802.1q) is enabled on the port.
@@ -35,7 +47,9 @@ The WAN connection is done using a USB to Ethernet dongle
 that connects to a dedicated DSL modem.
 The modem takes care of tagging the packets with VLAN ID 7.
 
-# Operation diagram
+Operation diagram
+=================
+
 Here's the core concept of how the components work together.
 
 ```
@@ -64,13 +78,17 @@ Here's the core concept of how the components work together.
 +-----+          +-------+        +------------+
 ```
 
-# Components
+Components
+==========
+
 To make the router work a small number of components are needed.
 These are either background services or oneshot setup commands.
 Some of them are optional depending on the environment the router is used in
 and personal preference.
 
-## pppoe2
+pppoe2
+------
+
 This is the second most important program running on the system.
 It is what connects to the outside world.
 To do so it utilizes the PPPoE standard, only implementing a bare minimum.
@@ -101,7 +119,9 @@ for the connection. This is backwards compatible to the old config
 that contained the physical interface to run on.
 This field is now simply ignored.
 
-## netlinkd
+netlinkd
+--------
+
 This is easily the most essential part of the entire project.
 It is responsible for configuring the network interfaces, routing
 and other network related settings. Most of them require communication
@@ -154,7 +174,9 @@ This extra configuration step is necessary with DSL modems since they can't
 see inside the PPPoE session. They use the underlying Ethernet link
 for administrative access.
 
-## netfilterd
+netfilterd
+----------
+
 Netfilter is a kernel system for packet filtering, logging, mangling and more.
 It's basically the Linux firewall. The popular `iptables` and `nftables` tools
 use it as their backend.
@@ -195,7 +217,9 @@ Now all services should be reachable.
 This MSS clamping is applied to other WAN interfaces as well
 so DS-Lite and 6in4 should work flawlessly too.
 
-## dhcp4d
+dhcp4d
+------
+
 Network clients need a way to configure themselves. Some devices don't support
 manual configuration. Even if they did it's annoying to manage
 and the subnetting scheme can't easily be changed later.
@@ -215,7 +239,9 @@ until no collisions are left.
 
 The only gateway and DNS server advertised is the router itself.
 
-## dhcp6
+dhcp6
+-----
+
 A link-local IPv6 connection over PPP is of no use on its own.
 The router needs a prefix for downstream clients as well as a means of
 discovering a DS-Lite AFTR. This is where DHCPv6 comes into play.
@@ -230,7 +256,9 @@ as of now. The AFTR is optional.
 The client automatically renews the lease after the time sent by the server
 has passed. If this fails it starts over.
 
-## dnsd
+dnsd
+----
+
 Having an internal DNS resolver is not required but it does have one major
 advantage. It is aware of the DHCP leases. Broken lease files are ignored,
 leaving the task of fixing them to `dhcp4d`.
@@ -248,7 +276,9 @@ If a local hostname is present on multiple interfaces,
 the interface the request originated from is prioritised
 when choosing the response.
 
-## dslite
+dslite
+------
+
 Dual Stack Lite is a common transition mechanism found in Germany.
 It is used to provide IPv4 connectivity to IPv6-only customers
 using carrier-grade NAT. Unfortunately this comes with many disadvantages
@@ -273,6 +303,7 @@ as its local endpoint. The internal address is `192.0.0.2/29`
 and the default route uses `192.0.0.1` as the gateway.
 
 ### VoIP
+
 Many ISPs provide phone service. Nowadays VoIP is very common for this.
 My previous ISP did not have IPv6 capable VoIP gateways.
 This has changed. The servers of the new ISP support both protocols.
@@ -292,7 +323,9 @@ Or maybe the ISP is going to assign private IPv4 addresses for this purpose?
 This is unlikely but it would also work. A solution on the AFTR side
 would likely be possible too.
 
-## ntp
+ntp
+---
+
 Some services on the router (namely `6in4`) require a somewhat accurate
 system clock in order to establish encrypted connections.
 This simple NTP client waits for the PPPoE connection to come up
@@ -300,7 +333,9 @@ and makes up to 3 attempts to get the time from a basic NTP server
 (no support for NTPv4 or SNTP). The fractional part is ignored for simplicity.
 If the unix epoch and the actual time are mixed in your logs this is why.
 
-## 6in4
+6in4
+----
+
 Since the ISP doesn't offer native IPv6 this service
 configures the local endpoint of a
 Hurricane Electric / [tunnelbroker.net](https://tunnelbroker.net) tunnel.
@@ -336,7 +371,9 @@ This program also takes care of calling the update URL
 to inform HE of our current IPv4 address. It needs DNS resolution (see code)
 and NTP to work.
 
-## radvd
+radvd
+-----
+
 Just like with IPv4 our client hosts need a way to get the IPv6 configuration.
 The most compatible and convenient way of achieving this is through SLAAC.
 This service periodically multicasts Router Advertisements (RA)
@@ -344,8 +381,12 @@ to the local networks, advertising itself as the gateway and DNS server.
 It also sends a multicast if it receives a Router Solicitation (RS)
 from a connecting host. Unicast is not used here out of laziness.
 
-# Interesting observations
-## IPv4 dynamicness
+Interesting observations
+========================
+
+IPv4 dynamicness
+----------------
+
 The public IPv4 address doesn't seem to change if the connection
 is re-established as quickly as possible. This is not reliable.
 Most of the time it changes if reconnecting takes more than a few seconds.
@@ -355,7 +396,9 @@ only the last octet is changed.
 
 I don't know about IPv6 yet.
 
-## IPv6 support
+IPv6 support
+------------
+
 Dialing PPPoE with invalid credentials yields a public /56 IPv6 prefix
 and a default gateway. However this is of no use as the ISP blocks all traffic
 due to the invalid credentials. Using the correct credentials
@@ -372,4 +415,4 @@ for Dual Stack to be enabled. Just to be safe I implemented DS-Lite.
 You never know if they stick to your orders and being prepared is certainly
 better than suddenly being unable to reach half of the internet.
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)

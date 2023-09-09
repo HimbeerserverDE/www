@@ -1,6 +1,9 @@
-% Write your own PPP(oE) client with kernel mode tunneling
+---
+title: Write your own PPP(oE) client with kernel mode tunneling
+---
 
-# Introduction
+Introduction
+============
 
 In this post we're going to explore how PPPoE works
 and how to write your own kernel-aware client for it.
@@ -14,7 +17,8 @@ and provides you with the `ppp0` interface.
 To do so it delegates some mystery work to the kernel.
 It also needs a user mode .so plugin for PPPoE support.
 
-# PPPoE vs. PPP
+PPPoE vs. PPP
+=============
 
 PPP stands for Point-to-Point Protocol. It first became popular
 with dial-up connections. The serial line you used to connect
@@ -47,7 +51,8 @@ by sending a `PPPoE Active Discovery Terminate (PADT)`.
 This usually happens after the higher level PPP session is terminated
 or if PPP termination fails or is unavailable (which it is in early phases).
 
-# How PPP works
+How PPP works
+=============
 
 PPP itself is simply a collection of protocols that can affect the state
 of other protocols.
@@ -94,7 +99,8 @@ it closes the protocol anyway.
 A Code-Reject signals an error condition likely caused by a bug
 or incompatible protocol versions which don't actually exist.
 
-## Link Control Protocol (LCP)
+Link Control Protocol (LCP)
+---------------------------
 
 LCP configures link information. This usually includes reducing the MRU
 and exchanging magic numbers. In addition to this most ISPs request
@@ -150,7 +156,8 @@ CHAP requires the option to contain a hashing algorithm,
 this is usually set to MD5 (password authentication for internet access
 is unnecessary anyway).
 
-## Authentication
+Authentication
+--------------
 
 This is skipped if no authentication is required according to the LCP exchange.
 
@@ -175,7 +182,8 @@ of the challenge packet.
 The client then responds with the calculated hash and the username.
 The server replies, telling it if the password was correct.
 
-## Network Control Protocols (NCPs)
+Network Control Protocols (NCPs)
+--------------------------------
 
 Once the PPP link has been established and authenticated
 at least one network protocol needs to be configured.
@@ -213,7 +221,8 @@ This is normal behavior for some reason.
 You can either make use of a LAN side address if your router assigns them
 to itself, or you can derive a WAN address from your delegated prefix.
 
-# So how do we implement a client?
+So how do we implement a client?
+================================
 
 There are two ways in which we can do this.
 The first one is handling everything in userspace
@@ -233,10 +242,11 @@ and made a sys crate for it.
 Kernel mode tunneling is likely to be more performant
 and significantly simplifies the code base. Here's how it works.
 
-# Kernel mode PPPoE
+Kernel mode PPPoE
+=================
 
 For this to work the kernel has to have support. Most distros use modules
-for this, but a minimal platform like [rustkrazy](/cgi-bin/rustkrazy.lua)
+for this, but a minimal platform like [rustkrazy](/md/rustkrazy.md)
 needs to compile native support into the kernel
 by setting the following options:
 
@@ -256,7 +266,8 @@ we're going to look at the C code.
 
 Control of this feature is done using sockets.
 
-## Discovery socket
+Discovery socket
+----------------
 
 This is going to be used internally for PPPoE discovery packets.
 The socket is created like this:
@@ -306,7 +317,8 @@ bind(sock, (struct sockaddr *) &sa, sizeof sa);
 This socket can then be converted to Rust's `socket2::Socket`
 and used normally.
 
-## Session initialization
+Session initialization
+----------------------
 
 Once PPPoE has established a session we need to actually get the kernel
 to tunnel traffic. To do this we first create a transport socket
@@ -371,6 +383,6 @@ and configured with the addresses by [netlinkd](https://github.com/rsdsl/netlink
 This was very frustrating to find out and took a long time.
 Have fun writing your own kernel mode PPPoE clients using this knowledge.
 
-[Return to Guide List](/cgi-bin/guides.lua)
+[Return to Guide List](/md/guides.md)
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)

@@ -1,6 +1,9 @@
-% IPv6 mit Vodafone DSL
+---
+title: IPv6 mit Vodafone DSL
+---
 
-# Einführung
+Einführung
+==========
 
 Seit kurzem (2023) habe ich einen DSL-Anschluss bei Vodafone.
 Leider wurde auf diesem nur IPv4 geschaltet.
@@ -8,7 +11,8 @@ Wie verbreitet diese Anschlussart ist oder warum sie bei Neuverträgen
 noch vergeben wird ist mir leider nicht bekannt. Allerdings lässt sich IPv6
 am DSL-Anschluss von Vodafone ohne große Probleme freischalten.
 
-# Anschlussarten
+Anschlussarten
+==============
 
 Im Festnetzbereich für Privatkunden gibt es bei Vodafone drei verbreitete
 Anschlusstypen: IPv4 only, Dual Stack und DS-Lite. Dabei wird Dual Stack
@@ -21,7 +25,8 @@ oder die Wahl der Option "Eigenhardware Kunde" bei der Routerwahl.
 Letzteres kommt deshalb in Frage, weil es auf im Kabel-Segment
 zu einer anderen Art der Adressvergabe führt.
 
-# Anschlussart prüfen
+Anschlussart prüfen
+===================
 
 Welche Protokolle geschaltet werden, lässt sich im alten Kundenportal einsehen.
 Dazu meldet man sich auf https://dsl.vodafone.de an und navigiert zu
@@ -29,7 +34,8 @@ Dazu meldet man sich auf https://dsl.vodafone.de an und navigiert zu
 wie man angebunden ist. Ist dort "IPv4" zu sehen, so bekommt man zwar
 eine dynamische, öffentliche IPv4-Adresse, aber keinen IPv6-Zugang.
 
-# Technische Informationen zur Nichtverfügbarkeit
+Technische Informationen zur Nichtverfügbarkeit
+===============================================
 
 Der Verbindungsaufbau erfolgt per PPPoE. Dabei handeln beide Seiten
 die Protokolle aus, die sie verwenden möchten, und tauschen dabei
@@ -52,7 +58,8 @@ wird auf eine Fehlerseite umgeleitet.
 Dies zu testen ermöglicht es, die potenzielle Verfügbarkeit von IPv6
 an seinem Anschluss zu überprüfen.
 
-# IPv6 freischalten lassen
+IPv6 freischalten lassen
+========================
 
 Die Aktivierung von IPv6 kann man leider nicht selbst vornehmen.
 Hierzu kontaktiert man die Hotline unter `0800 172 1212`.
@@ -65,7 +72,8 @@ werden möchte. Falls die Frage nach "öffentlich" oder "privat" gestellt wird,
 sollte man diese mit "öffentlich" beantworten. Ansonsten bekommt man DS-Lite,
 was allein schon aus Performance-Gründen meistens die schlechtere Wahl ist.
 
-# (Kundenseitige) Aktivierung
+(Kundenseitige) Aktivierung
+===========================
 
 Die Umstellung des Adressierungstyps erfolgt erst in der Nacht.
 Danach sollte an der zuvor genannten Stelle im Kundenportal
@@ -77,7 +85,8 @@ aufgebaut werden. Im Zweifel geschieht dies durch einen manuellen
 Neustart des Routers. Selbstverständlich muss dazu natives IPv6 vom Router
 unterstützt werden und eingeschaltet sein.
 
-# Router-Konfiguration
+Router-Konfiguration
+====================
 
 Bei gängigen Modellen sollten die Standardeinstellungen bereits ausreichen.
 Folgende Einstellungen sind für Bastlerfirmwares oder im Fehlerfall zu setzen:
@@ -90,7 +99,8 @@ Folgende Einstellungen sind für Bastlerfirmwares oder im Fehlerfall zu setzen:
 Rapid Commit ist vermutlich am wichtigsten. Ob auch ohne Rapid Commit
 eine Verbindung über IPv6 zustande kommt, habe ich nicht überprüft.
 
-# Was bekommt man?
+Was bekommt man?
+================
 
 Es werden IPv6 Router Advertisements verwendet, um das Default-Gateway einzurichten.
 Allerdings ist das bei einem Point-to-Point-Tunnel eigentlich egal, da eine Route
@@ -109,7 +119,8 @@ Ich verwende dazu das erste /64-Netz und nutze `::1` als Interface Identifier.
 Es sollte außerdem möglich sein, eine der LAN-Adressen des Routers
 für diesen Zweck mitzunutzen.
 
-# VoIP
+VoIP
+====
 
 Anders als bei Kabel unterstützen die SIP-Registrars Dual Stack.
 Ist der Client (bzw. die Telefonanlage) auch dazu fähig, sollte man beides
@@ -117,6 +128,6 @@ einrichten. In meinem Fall wird clientseitig nur IPv4 unterstützt,
 sodass sich nichts ändert. Sollte diese Möglichkeit eines Tages verschwinden,
 ist die Nutzung eines einfachen L4-Proxys ein funktionierender Workaround.
 
-[Return to Guide List](/cgi-bin/guides.lua)
+[Return to Guide List](/md/guides.md)
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)

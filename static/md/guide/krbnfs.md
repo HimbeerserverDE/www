@@ -1,12 +1,18 @@
-% Kerberized NFS: access denied by server while mounting
+---
+title: Kerberized NFS: access denied by server while mounting
+---
 
-# Introduction
+Introduction
+============
+
 Protecting a NFS share with Kerberos is not very easy to do but definitely
 doable with a good setup manual. A very helpful website is
 https://wiki.ubuntuusers.de although some of the pages
 have since been archived.
 
-# Setup
+Setup
+=====
+
 The hostnames are different in my actual setup and will certainly be
 different for you.
 
@@ -19,6 +25,7 @@ The client computer is running a krb5 client and a NFS client with
 the necessary rpc daemons.
 
 #### Kerberos principals
+
 * admin/admin, has full access to kadmin
 * himbeerserverde, a regular user
 * host/srv.himbeerserver.de, server host key
@@ -37,10 +44,12 @@ in a broken NFS.
 I'm aware this isn't the best solution. I'm probably going to come up
 with a better one in about half a decade.
 
-# The Error
+The Error
+=========
+
 This is the command I use to mount the NFS share:
 
-```sh
+```
 sudo mount -t nfs4 -o sec=krb5i,async,soft srv.himbeerserver.de:/media/ssd /mnt/himbeerserverde/nfs
 ```
 
@@ -49,7 +58,9 @@ what was going on. This has happened several times and could sometimes be
 fixed by rebooting both machines. Unfortunately rebooting didn't help
 most of the time.
 
-# Debugging
+Debugging
+=========
+
 The logs are not very helpful for debugging this error.
 Adding `-vvvv` to the mount command outputs more but still only shows
 that permission was denied, not why it's happening.
@@ -70,13 +81,16 @@ The fact that the server was experiencing the issue made me think that it
 was a host authentication issue that had nothing to do with the user.
 This later turned out to be correct.
 
-# The Solution
+The Solution
+============
+
 After spending days googling for a solution and trying different things
 I decided to completely reconfigure host-related principals.
 Here's exactly what I did:
 
 Server:
-```sh
+
+```
 srv# rm /etc/krb5.keytab
 srv# kadmin -p admin/admin
 kadmin:  purgekeys host/srv.himbeerserver.de
@@ -97,7 +111,8 @@ Purging the user keys is *probably* not needed either but you can
 do it if the above steps didn't work.
 
 Client (repeat for all affected clients with the corresponding keys):
-```sh
+
+```
 clt# rm /etc/krb5.keytab
 clt# kadmin -p admin/admin
 kadmin:  purgekeys host/clt.himbeerserver.de
@@ -119,6 +134,6 @@ Now mount the NFS share again. If it still doesn't work, reboot
 the server and the client. If that doesn't fix it unfortunately
 I can't help you.
 
-[Return to Guide List](/cgi-bin/guides.lua)
+[Return to Guide List](/md/guides.md)
 
-[Return to Index Page](/cgi-bin/index.lua)
+[Return to Index Page](/md/index.md)
