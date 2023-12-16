@@ -1,5 +1,5 @@
 ---
-title: Kerberized NFS: access denied by server while mounting
+title: "Kerberized NFS: access denied by server while mounting"
 ---
 
 Introduction
