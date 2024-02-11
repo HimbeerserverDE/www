@@ -26,7 +26,7 @@ More websites you might be interested in
 ========================================
 
 * [anon5's GitHub](https://github.com/anon55555)
-* [DerZombiiie](https://blog.derzombiiie.com)
+* [Riley](https://dasriley.de) (formerly DerZombiiie)
 * [j45.dev](https://j45.dev)
 * [lizzy.rs](https://lizzy.rs)
 * [Michael Stapelberg](https://michael.stapelberg.ch) (distri, gokrazy, i3)
