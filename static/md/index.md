@@ -18,7 +18,7 @@ Services / Quick Links
 * Matrix (HTTPS/TCP port 443)
 
 * [mt-multiserver-proxy](/md/mt/proxy.md)
-* [mt-multiserver-chatcommands](/mt/mt/proxy.md#commands)
+* [mt-multiserver-chatcommands](/md/mt/proxy.md#commands)
 * [rustkrazy](/md/rustkrazy.md)
 * [rsdsl](/md/rsdsl.md)
 
