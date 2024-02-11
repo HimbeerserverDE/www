@@ -1,5 +1,5 @@
 ---
-title: Welcome to the Himbeerserver!
+title: Himbeer's website
 ---
 
 This is my personal website I use to publish my projects,
