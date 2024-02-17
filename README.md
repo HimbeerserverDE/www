@@ -18,7 +18,7 @@ The `uninstall.sh` script removes them again without restoring the original file
 Alpine:
 
 ```
-apk add caddy-openrc cgit python3 py3-markdown py3-pygments
+apk add caddy cgit python3 py3-markdown py3-pygments
 ```
 
 ## Required caddy plugins
