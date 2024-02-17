@@ -5,7 +5,7 @@ Himbeerserver v3, formerly known as
 
 This is a simple static markdown website and cgit instance powered by caddy.
 
-No JavaScript or CSS is used.
+No JavaScript is used, but there is a global CSS stylesheet.
 
 The `sys` directory contains the filesystem structure to copy to the rootfs.
 This repository should be cloned to `/srv/www`.
