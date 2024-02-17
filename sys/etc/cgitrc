@@ -1,6 +1,6 @@
-css=/usr/share/websapps/cgit/cgit.css
-logo=/srv/www/static/himbeerlogo.png
-favicon=/srv/www/static/favicon.ico
+css=/base/cgit.css
+logo=/base/himbeerlogo.png
+favicon=/favicon.ico
 
 enable-index-links=1
 enable-index-owner=0
