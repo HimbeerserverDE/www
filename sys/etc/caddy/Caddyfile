@@ -1,9 +1,11 @@
 {
-	auto_https off
+	order cgi before respond
 }
 
-http://himbeerserver.de {
-	root * /srv/caddy
+himbeerserver.de {
+	reverse_proxy /_matrix/* localhost:8008
+
+	root * /srv/www/static
 
 	file_server
 	templates
@@ -42,5 +44,20 @@ http://himbeerserver.de {
 		handle {
 			rewrite * /base/error.html
 		}
+	}
+}
+
+www.himbeerserver.de {
+	redir {scheme}://himbeerserver.de{uri} permanent
+}
+
+git.himbeerserver.de {
+	handle_path /cgit/* {
+		root * /usr/share/webapps/cgit
+		file_server
+	}
+
+	handle {
+		cgi * /usr/share/webapps/cgit/cgit.cgi
 	}
 }
