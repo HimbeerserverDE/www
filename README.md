@@ -9,8 +9,8 @@ No JavaScript is used, but there is a global CSS stylesheet.
 
 The `sys` directory contains the filesystem structure to copy to the rootfs.
 This repository should be cloned to `/srv/www`.
-The `install.sh` script creates symlinks for configuration files to `/srv/www`
-and copies the cgit stylesheet to the base directory, overwriting existing files.
+The `install.sh` script creates symlinks for configuration files to `/srv/www`,
+overwriting existing files.
 The `uninstall.sh` script removes them again without restoring the original files.
 
 ## Required system packages

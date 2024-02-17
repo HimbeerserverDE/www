@@ -14,7 +14,9 @@ himbeerserver.de {
 
 	@base {
 		path /base/*
+
 		not path /base/*.css
+		not path /base/*.png
 	}
 
 	@markdown {
@@ -58,7 +60,9 @@ git.himbeerserver.de {
 
 	@base {
 		path /base/*
+
 		not path /base/*.css
+		not path /base/*.png
 	}
 
 	@well_known {
