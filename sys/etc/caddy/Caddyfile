@@ -54,10 +54,6 @@ www.himbeerserver.de {
 }
 
 git.himbeerserver.de {
-	root * /srv/www/static
-
-	file_server
-
 	@base {
 		path /base/*
 
@@ -73,12 +69,13 @@ git.himbeerserver.de {
 		file_server
 	}
 
-	handle_path /base/* {
-		file_server
-	}
-
 	handle @base {
 		error 403
+	}
+
+	handle_path /base/* {
+		root * /srv/www/static/base
+		file_server
 	}
 
 	handle_path /cgit/* {
