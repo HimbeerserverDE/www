@@ -1,10 +1,5 @@
 {
 	order cgi before respond
-
-	@base {
-		path /base/*
-		not path /base/*.css
-	}
 }
 
 himbeerserver.de {
@@ -16,6 +11,11 @@ himbeerserver.de {
 	templates
 
 	redir / /md/index.md permanent
+
+	@base {
+		path /base/*
+		not path /base/*.css
+	}
 
 	@markdown {
 		path_regexp /md/.*\.md$
@@ -55,6 +55,11 @@ git.himbeerserver.de {
 	root * /srv/www/static
 
 	file_server
+
+	@base {
+		path /base/*
+		not path /base/*.css
+	}
 
 	handle_path /cgit/* {
 		root * /usr/share/webapps/cgit
