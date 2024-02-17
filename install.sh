@@ -6,4 +6,4 @@ for FILE in ${FILES}; do
 	ln -sf "/srv/www/sys/${FILE}" "/${FILE}"
 done
 
-ln -sf /usr/share/webapps/cgit/cgit.css /srv/www/static/base/cgit.css
+cp -p /usr/share/webapps/cgit/cgit.css /srv/www/static/base/cgit.css
