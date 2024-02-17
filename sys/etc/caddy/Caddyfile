@@ -69,6 +69,18 @@ git.himbeerserver.de {
 		path /favicon.ico
 	}
 
+	handle @well_known {
+		file_server
+	}
+
+	handle_path /base/* {
+		file_server
+	}
+
+	handle @base {
+		error 403
+	}
+
 	handle_path /cgit/* {
 		root * /usr/share/webapps/cgit
 		file_server
@@ -76,14 +88,6 @@ git.himbeerserver.de {
 
 	handle {
 		cgi * /usr/share/webapps/cgit/cgit.cgi
-	}
-
-	handle @well_known {
-		file_server
-	}
-
-	handle @base {
-		error 403
 	}
 
 	handle_errors {
