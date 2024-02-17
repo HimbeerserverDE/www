@@ -54,6 +54,8 @@ www.himbeerserver.de {
 }
 
 git.himbeerserver.de {
+	root * /srv/www/static
+
 	@base {
 		path /base/*
 
