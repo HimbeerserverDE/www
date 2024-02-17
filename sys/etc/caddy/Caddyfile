@@ -61,6 +61,10 @@ git.himbeerserver.de {
 		not path /base/*.css
 	}
 
+	@well_known {
+		path /favicon.ico
+	}
+
 	handle_path /cgit/* {
 		root * /usr/share/webapps/cgit
 		file_server
@@ -68,6 +72,10 @@ git.himbeerserver.de {
 
 	handle {
 		cgi * /usr/share/webapps/cgit/cgit.cgi
+	}
+
+	handle @well_known {
+		file_server
 	}
 
 	handle @base {
