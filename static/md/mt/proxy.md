@@ -166,3 +166,5 @@ for detailed documentation.
 * Display proxy uptime: `>uptime`
 * Show command description(s): `>help [command]`
 * Show command usage(s): `>usage [command]`
+
+[Return to Index Page](/md/index.md)
