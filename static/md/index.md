@@ -19,6 +19,7 @@ enable or even force it on your own servers too.
 
 * [Guides](/md/guides.md)
 * [Git](https://git.himbeerserver.de)
+* XMPP (TCP ports 5222 + 5223)
 * Matrix (HTTPS/TCP port 443)
 
 * [mt-multiserver-proxy](/md/mt/proxy.md)

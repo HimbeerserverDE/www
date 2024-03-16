@@ -14,7 +14,7 @@ repository-sort=age
 
 clone-url=git://himbeerserver.de/$CGIT_REPO_URL https://git.himbeerserver.de/$CGIT_REPO_URL
 root-title=HimbeerGit
-root-desc=Mirrors of several of my GitHub projects.
+root-desc=Mirrors of my git repositories from external code forges.
 
 ##
 ## List of common mimetypes
