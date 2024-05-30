@@ -47,6 +47,7 @@ Fingerprints:
 
 * `5d925ee5 7c8b4c1f 43b0f55e 4bdfe56b 33b9dbaf 66272b3c 83340919 0956d422`
 * `db92dbfd b615e141 2bc1fc0e 7accc217 17559c31 9799a493 41a00a1d b64a0326`
+* `7b9a956f 6eb9e85d 8c17f51b ef31b67c f846f606 3fc6a055 49a903d7 85d7ab57`
 
 S/MIME
 ------
