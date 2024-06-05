@@ -3,7 +3,7 @@ logo=/base/banner.png
 favicon=/favicon.ico
 
 enable-index-links=1
-enable-index-owner=0
+enable-index-owner=1
 enable-commit-graph=1
 enable-blame=1
 enable-log-filecount=1
@@ -14,7 +14,7 @@ repository-sort=age
 
 clone-url=git://himbeerserver.de/$CGIT_REPO_URL https://git.himbeerserver.de/$CGIT_REPO_URL
 root-title=HimbeerGit
-root-desc=Mirrors of my git repositories from external code forges.
+root-desc=Private git hosting and mirrors of my repositories from external code forges.
 
 ##
 ## List of common mimetypes
