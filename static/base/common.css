@@ -10,4 +10,5 @@ pre {
 
 th, td {
 	border: 2px solid black;
+	margin: 1em;
 }
