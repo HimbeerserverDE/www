@@ -10,7 +10,7 @@ and the kernel. They provide access to kernel APIs such as the
 Calling convention
 ==================
 
-A syscalls is invoked by executing the `ecall` instruction with the argument
+A syscall is invoked by executing the `ecall` instruction with the argument
 registers set to the following values:
 
 | Register | Friendly name | Meaning        |
