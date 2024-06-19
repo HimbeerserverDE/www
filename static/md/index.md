@@ -6,9 +6,10 @@ This is my personal website I use to publish my projects,
 [guides](/md/guides.md), [contact info](/md/contact.md) and more.
 
 Notable projects include a [reverse proxy for Minetest](/md/mt/proxy.md),
-the [rustkrazy](/md/rustkrazy.md) appliance platform
-and a [dyndns client](https://git.himbeerserver.de/dyndns-rs.git/about)
-for INWX with reasonable IPv6 prefix updating.
+the [rustkrazy](/md/rustkrazy.md) appliance platform,
+a [dyndns client](https://git.himbeerserver.de/dyndns-rs.git/about)
+for INWX with reasonable IPv6 prefix updating
+and the [SRVRE Operating System](/md/srvre.md).
 
 Services / Quick Links
 ======================
@@ -26,6 +27,9 @@ enable or even force it on your own servers too.
 * [mt-multiserver-chatcommands](/md/mt/proxy.md#commands)
 * [rustkrazy](/md/rustkrazy.md)
 * [rsdsl](/md/rsdsl.md)
+* [SRVRE](/md/srvre.md)
+* [SRVRE Kernel](/md/srvre/kernel.md)
+* [SRVRE Kernel Wiki](/md/srvre/kernel/wiki.md)
 
 More websites you might be interested in
 ========================================
