@@ -10,5 +10,6 @@ pre {
 
 th, td {
 	border: 2px solid black;
-	margin: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
