@@ -21,6 +21,9 @@ to userspace and is typically responsible for starting essential drivers,
 accessing persistent storage and starting essential processes to allow
 user login. It runs with full permission potential and no user identity.
 
+See the repository [README.md](https://git.himbeerserver.de/srvre/kernel.git/about/#create-a-userinit)
+for instructions on how to create a userinit.
+
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 
 [Return to Index Page](/md/index.md)
