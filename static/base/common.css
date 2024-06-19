@@ -7,3 +7,7 @@ pre {
 	background-color: lightgrey;
 	font-family: Monospace;
 }
+
+th, td {
+	border: 2px solid black;
+}
