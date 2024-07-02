@@ -38,19 +38,19 @@ List
 The following syscalls are currently available.
 Detailed descriptions follow after the summary table.
 
-| Number | Name           |
-| :----: | :------------- |
-| 100000 | uprint         |
-| 100001 | open           |
-| 100002 | close          |
-| 100003 | provideStream  |
-| 100004 | provideFile    |
-| 100005 | provideHook    |
-| 100006 | mkdir          |
-| 100007 | provideDirHook |
-| 100008 | remove         |
-| 100009 | read           |
-| 100010 | write          |
+| Number | Name                                     |
+| :----: | :--------------------------------------- |
+| 100000 | [uprint](#uprint-100000)                 |
+| 100001 | [open](#open-100001)                     |
+| 100002 | [close](#close-100002)                   |
+| 100003 | [provideStream](#providestream-100003)   |
+| 100004 | [provideFile](#providefile-100004)       |
+| 100005 | [provideHook](#providehook-100005)       |
+| 100006 | [mkdir](#mkdir-100006)                   |
+| 100007 | [provideDirHook](#providedirhook-100007) |
+| 100008 | [remove](#remove-100008)                 |
+| 100009 | [read](#read-100009)                     |
+| 100010 | [write](#write-100010)                   |
 
 uprint (#100000)
 ----------------
