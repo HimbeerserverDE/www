@@ -216,7 +216,7 @@ and support holding sub-resources.
 * `path_c` is a null-terminated POSIX path
 * `provideFn` is the callback to invoke when any "provide\*" syscall provides a direct sub-resource of this resource
 * `findFn` is the callback to invoke to get a sub-resource by name if it exists
-* `removeFn` is the callback to invoke when the [remove](#remove) syscall removes a direct sub-resource of this resource
+* `removeFn` is the callback to invoke when the [remove](#remove-100008) syscall removes a direct sub-resource of this resource
 
 remove (#100008)
 ----------------
