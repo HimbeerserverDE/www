@@ -73,3 +73,7 @@ and user-friendly descriptions as well as some troubleshooting tips.
 |          51 | write_not_supported              | WriteNotSupported             | The resource pointed to by a resource descriptor handle does not support writing despite write access being permitted for the calling process. This is likely an issue with the affected program (specifically its error handling) or a version mismatch between it and the driver/kernel. |
 |          52 | in_use                           | InUse                         | An inode cannot be modified or removed because it is currently referenced by at least one resource descriptor. Close all resource descriptors to it and try again. |
 | 2⁶⁴ - 1 = 18446744073709551615 | unknown                 | Unknown                       | An error that isn't listed above occured (e.g. a Zig standard library error). |
+
+[Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
+
+[Return to Index Page](/md/index.md)
