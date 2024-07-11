@@ -16,6 +16,7 @@ List
 * [userinit](/md/srvre/kernel/wiki/userinit.md)
 * [Syscalls](/md/srvre/kernel/wiki/syscalls.md)
 * [VFS](/md/srvre/kernel/wiki/vfs.md)
+* [Errors](/md/srvre/kernel/wiki/errors.md)
 
 [Project Page](/md/srvre/kernel.md)
 
