@@ -15,7 +15,7 @@ List
 * [Startup](/md/srvre/kernel/wiki/startup.md)
 * [userinit](/md/srvre/kernel/wiki/userinit.md)
 * [Syscalls](/md/srvre/kernel/wiki/syscalls.md)
-* [VFS and builtin resources](/md/srvre/kernel/wiki/vfs.md)
+* [VFS](/md/srvre/kernel/wiki/vfs.md) and [builtin resources](/md/srvre/kernel/wiki/vfs.md#builtin-resources)
 * [Errors](/md/srvre/kernel/wiki/errors.md)
 
 [Project Page](/md/srvre/kernel.md)
