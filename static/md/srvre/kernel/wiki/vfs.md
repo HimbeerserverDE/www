@@ -71,7 +71,16 @@ Interaction from U-mode
 VFS resources are provided or accessed using
 [system calls](/md/srvre/kernel/wiki/syscalls.md):
 
-* TODO (none yet)
+* [open](/md/srvre/kernel/wiki/syscalls.md#open-100001): Opens a resource, obtaining a resource descriptor handle.
+* [close](/md/srvre/kernel/wiki/syscalls.md#close-100002): Closes a resource descriptor handle.
+* [provideStream](/md/srvre/kernel/wiki/syscalls.md#providestream-100003): Provides a stream resource.
+* [provideFile](/md/srvre/kernel/wiki/syscalls.md#providefile-100004): Provides a file resource.
+* [provideHook](/md/srvre/kernel/wiki/syscalls.md#providehook-100005): Provides a hook resource.
+* [mkdir](/md/srvre/kernel/wiki/syscalls.md#mkdir-100006): Creates a kernel-managed directory.
+* [provideDirHook](/md/srvre/kernel/wiki/syscalls.md#providedirhook-100007): Provides a directory hook.
+* [remove](/md/srvre/kernel/wiki/syscalls.md#remove-100008): Removes a resource from the VFS.
+* [read](/md/srvre/kernel/wiki/syscalls.md#read-100009): Reads from a resource descriptor handle into a buffer.
+* [write](/md/srvre/kernel/wiki/syscalls.md#write-100010): Writes to a resource descriptor handle from a buffer.
 
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 
