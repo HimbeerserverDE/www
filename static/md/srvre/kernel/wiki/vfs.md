@@ -65,6 +65,43 @@ contained within.
 
 Example use cases: Filesystem drivers, network protocols
 
+Builtin resources
+=================
+
+The kernel provides the following builtin resources for providers
+and other programs to build upon:
+
+`/io`
+-----
+
+The `/io` directory provides interfaces for byte-grained, often text-based
+communication with the environment the program is running in.
+
+* `/io/debug`: Write-only access to the debug console, usually provided by the SBI (firmware)
+
+`/userinit`
+-----------
+
+The `/userinit` directory provides read-only access to the
+[userinit](/md/srvre/kernel/wiki/userinit.md) tree.
+Its purpose is to make essential drivers and the data required to run them
+to the init process.
+
+* `/userinit/init`: The executable started as the init process. There is nothing special about it internally but it's noteworthy enough to be listed here explicitly.
+
+`/process`
+----------
+
+The `/process` directory provides information about as well as control
+interfaces to processes and threads, including the caller.
+
+### `/process/self`
+
+The `/process/self` subdirectory provides information about as well as control
+interfaces to the calling process and thread.
+
+* `/process/self/terminate`: A [hook](#hook) that terminates the current thread. The extra data is ignored. This is likely to be made more powerful in the future.
+
 Interaction from U-mode
 =======================
 
