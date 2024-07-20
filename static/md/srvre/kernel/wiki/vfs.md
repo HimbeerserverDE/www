@@ -95,6 +95,8 @@ to the init process.
 The `/process` directory provides information about as well as control
 interfaces to processes and threads, including the caller.
 
+* `/process/create`: A [hook](#hook) that adds a new process to the scheduler, returning its ID. The extra data is the null-terminated path of the program to start.
+
 ### `/process/self`
 
 The `/process/self` subdirectory provides information about as well as control
