@@ -101,6 +101,8 @@ The `/process/self` subdirectory provides information about as well as control
 interfaces to the calling process and thread.
 
 * `/process/self/terminate`: A [hook](#hook) that terminates the current thread. The extra data is ignored. This is likely to be made more powerful in the future.
+* `/process/self/id`: A [hook](#hook) that returns the ID of the current process. The extra data is ignored.
+* `/process/self/thread_id`: A [hook](#hook) that returns the ID of the current thread within the current process. The extra data is ignored.
 
 Interaction from U-mode
 =======================
