@@ -128,29 +128,49 @@ Signature:
 ```
 provideFile(
     path_c: [*:0]const u8,
-    openFn: *allowzero const fn (pid: u16) Result(*anyopaque),
-    readFn: ?*const fn (context: *anyopaque, buffer: []u8) Result(usize),
-    writeFn: ?*const fn (context: *anyopaque, bytes: []const u8) Result(usize),
-    closeFn: ?*const fn (context: *anyopaque) void,
+    readFn: ?*const fn (context: *vfs.FileContext, buffer: []u8) Result(usize),
+    writeFn: ?*const fn (context: *vfs.FileContext, bytes: []const u8) Result(usize),
+    closeFn: ?*const fn (context: *vfs.FileContext) void,
+	initializer: ?*anyopaque,
 ) Result(void)
 ```
 
 Provides a [file resource](/md/srvre/kernel/wiki/vfs.md#file)
-at `path_c`. This system call can fail. All callbacks excluding `openFn`
-are optional, omitting them causes their respective operations to raise a
-"\*NotSupported" error with the exception of `close` which will still work
-without invoking a custom callback.
+at `path_c`. This system call can fail. All callbacks are optional,
+omitting them causes their respective operations to raise a "\*NotSupported"
+error with the exception of `close` which will still work without invoking a
+custom callback.
 All but the last component of the path must already exist
 and support holding sub-resources.
 
 * `path_c` is a null-terminated POSIX path
-* `openFn` is the callback to invoke when a process tries to open the resource,
 returning a pointer to a driver-specific context data structure which is passed
 to the other callbacks but never exposed to any other processes by the kernel,
 or an error; You may store the process ID in this context object if required
 * `readFn` is the callback to invoke when a process tries to read from the resource
 * `writeFn` is the callback to invoke when a process tries to write to the resource
 * `closeFn` is the callback to invoke when a process closes the resource
+* `initializer` is an optional pointer to an initial context object passed to the callback functions.
+
+The `vfs.FileContext` struct is defined as follows:
+
+```
+pub const FileContext = extern struct {
+	inner: ?*anyopaque,
+};
+```
+
+Callbacks, particularly `readFn` and `writeFn`, may initialize this value
+if unset or modify it later and it will be preserved across calls from the
+same process.
+
+The `inner` field is set to `null` by default. Most callback implementations
+will want to check for this and initialize it using the `initializer` field
+if necessary.
+
+The `initializer` field is set to the `initializer` parameter of this
+system call. Changing it will not affect its value for later
+[open](#open-100001) operations.
 
 provideHook (#100005)
 ---------------------
