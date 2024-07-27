@@ -4,8 +4,8 @@ date: "Wed Jun 19 2024"
 ---
 
 System calls are the most fundamental interface between processes
-and the kernel. They provide access to kernel APIs such as the
-[VFS](/md/srvre/kernel/wiki/vfs.md).
+and the kernel. They provide access to kernel APIs such as
+[message passing](/md/srvre/kernel/wiki/msgpass.md).
 
 Calling convention
 ==================
@@ -29,8 +29,14 @@ registers:
 
 | Register | Friendly name | Meaning         |
 | :------: | :-----------: | :-------------- |
-|   x10    |      a0       | Return value #0 |
-|   x11    |      a1       | Return value #1 |
+|   x10    |      a0       | Return value    |
+|   x11    |      a1       | Error code      |
+
+The operation was successful if and only if the error code is zero.
+Any other value indicates an [error](/md/srvre/kernel/wiki/errors.md).
+Error codes are not stable across source code changes due to the use of Zig's
+`@intFromError` cast. You may however pass such an error code to
+[errorName](#errorname-100000) to retrieve its name.
 
 List
 ====
@@ -38,253 +44,118 @@ List
 The following syscalls are currently available.
 Detailed descriptions follow after the summary table.
 
-| Number | Name                                     |
-| :----: | :--------------------------------------- |
-| 100000 | [uprint](#uprint-100000)                 |
-| 100001 | [open](#open-100001)                     |
-| 100002 | [close](#close-100002)                   |
-| 100003 | [provideStream](#providestream-100003)   |
-| 100004 | [provideFile](#providefile-100004)       |
-| 100005 | [provideHook](#providehook-100005)       |
-| 100006 | [mkdir](#mkdir-100006)                   |
-| 100007 | [provideDirHook](#providedirhook-100007) |
-| 100008 | [remove](#remove-100008)                 |
-| 100009 | [read](#read-100009)                     |
-| 100010 | [write](#write-100010)                   |
+| Number | Name                                 |
+| :----: | :----------------------------------- |
+| 100000 | [errorName](#errorname-100000)       |
+| 100001 | [consoleWrite](#consoleWrite-100001) |
+| 100002 | [launch](#launch-100002)             |
+| 100003 | [end](#end-100003)         |
+| 100004 | [terminate](#terminate-100004)     |
+| 100005 | [processId](#processid-100005)     |
+| 100006 | [threadId](#threadid-100006)         |
 
-uprint (#100000)
+errorName (#100000)
+-------------------
+
+Signature:
+```
+errorName(code: usize, buffer: [*]u8, len: usize) !usize
+```
+
+Possible errors:
+```
+ZeroAddressSupplied
+ErrorCodeOutOfRange
+```
+
+Writes the name matching an error code to a buffer.
+If the name exceeds the length of the buffer the remaining bytes are truncated.
+
+* `code` is the error code to get the name of
+* `buffer` is a pointer to the output buffer
+* `len` is the length of the buffer in bytes
+
+consoleWrite (#100001)
 ----------------
 
 Signature:
 ```
-uprint(str_addr: usize, len: usize) void
+consoleWrite(bytes: [*]const u8, len: usize) void
 ```
 
-**WARNING:** This system call will be removed in a future version.
+Writes the string at `bytes` directly to the debug console.
 
-Prints the string at `str_addr` to the debug console,
-preceeded by "User message: " and succeeded by "\n".
-
-* `str_addr` is the memory address of the first character of the string
+* `bytes` is a pointer to the string
 * `len` is the length of the string in bytes
 
-open (#100001)
---------------
-
-Signature:
-```
-open(path_c: [*:0]const u8, data: usize) Result(usize)
-```
-
-Opens the resource at `path_c`, returning a handle to a descriptor
-(or a driver-specific return value) or an error.
-All but the last component of the path must already exist
-and support holding sub-resources.
-
-* `path_c` is a null-terminated POSIX path
-* `data` is either passed to the driver or used to decide
-how to open the resource (i.e. read-only, read-write, append etc.)
-
-close (#100002)
----------------
-
-Signature:
-```
-close(handle: usize) void
-```
-
-Closes the resource descriptor identified by `handle`.
-This system call cannot fail, invalid handles are silently ignored.
-
-* `handle` is a handle to a resource descriptor
-
-provideStream (#100003)
------------------------
-
-Signature:
-```
-provideStream(
-    path_c: [*:0]const u8,
-    readFn: ?*const fn (buffer: []u8) Result(usize),
-    writefn: ?*const fn (bytes: []const u8) Result(usize),
-) Result(void)
-```
-
-Provides a [stream resource](/md/srvre/kernel/wiki/vfs.md#stream)
-at `path_c`. This system call can fail. The callbacks are optional,
-omitting them causes their respective operations to raise a
-"\*NotSupported" error.
-All but the last component of the path must already exist
-and support holding sub-resources.
-
-* `path_c` is a null-terminated POSIX path
-* `readFn` is the callback to invoke when a process tries to read from the resource
-* `writeFn` is the callback to invoke when a process tries to write to the resource
-
-provideFile (#100004)
----------------------
-
-Signature:
-```
-provideFile(
-    path_c: [*:0]const u8,
-    readFn: ?*const fn (context: *vfs.FileContext, buffer: []u8) Result(usize),
-    writeFn: ?*const fn (context: *vfs.FileContext, bytes: []const u8) Result(usize),
-    closeFn: ?*const fn (context: *vfs.FileContext) void,
-	initializer: ?*anyopaque,
-) Result(void)
-```
-
-Provides a [file resource](/md/srvre/kernel/wiki/vfs.md#file)
-at `path_c`. This system call can fail. All callbacks are optional,
-omitting them causes their respective operations to raise a "\*NotSupported"
-error with the exception of `close` which will still work without invoking a
-custom callback.
-All but the last component of the path must already exist
-and support holding sub-resources.
-
-* `path_c` is a null-terminated POSIX path
-returning a pointer to a driver-specific context data structure which is passed
-to the other callbacks but never exposed to any other processes by the kernel,
-or an error; You may store the process ID in this context object if required
-* `readFn` is the callback to invoke when a process tries to read from the resource
-* `writeFn` is the callback to invoke when a process tries to write to the resource
-* `closeFn` is the callback to invoke when a process closes the resource
-* `initializer` is an optional pointer to an initial context object passed to the callback functions.
-
-The `vfs.FileContext` struct is defined as follows:
-
-```
-pub const FileContext = extern struct {
-	inner: ?*anyopaque,
-};
-```
-
-Callbacks, particularly `readFn` and `writeFn`, may initialize this value
-if unset or modify it later and it will be preserved across calls from the
-same process.
-
-The `inner` field is set to `null` by default. Most callback implementations
-will want to check for this and initialize it using the `initializer` field
-if necessary.
-
-The `initializer` field is set to the `initializer` parameter of this
-system call. Changing it will not affect its value for later
-[open](#open-100001) operations.
-
-provideHook (#100005)
----------------------
-
-Signature:
-```
-provideHook(
-    path_c: [*:0]const u8,
-    callback: *allowzero const fn (pid: u16, data: usize) Result(usize),
-) Result(void)
-```
-
-Provides a [hook resource](/md/srvre/kernel/wiki/vfs.md#hook)
-at `path_c`. This system call can fail.
-All but the last component of the path must already exist
-and support holding sub-resources.
-
-* `path_c` is a null-terminated POSIX path
-* `callback` is the callback to invoke when a process tries to open the resource,
-returning a driver-specific integer value or an error; This callback gets access
-to the `data` parameter passed to the [open](#open) syscall by the process
-
-mkdir (#100006)
----------------
-
-Signature:
-```
-mkdir(path_c: [*:0]const u8, options: usize) Result(void)
-```
-
-**WARNING:** This system call is currently not implemented and will cause a kernel panic.
-**WARNING:** The options will be removed before this version is released.
-
-Creates a [directory](/md/srvre/kernel/wiki/vfs.md#directory)
-at `path_c`. This system call can fail.
-All but the last component of the path must already exist
-and support holding sub-resources, unless the `full` option is set
-which creates missing components as directories unless they already exist
-as non-directory resources (which raises an error).
-
-* `path_c` is a null-terminated POSIX path
-* `options` is a bit field holding any combination of the following flags:
-	* `full` (1): Create all required components as directories if possible (comparable to `mkdir -p` on Linux)
-
-provideDirHook (#100007)
-------------------------
-
-Signature:
-```
-provideDirHook(
-    path_c: [*:0]const u8,
-    provideFn: *allowzero const fn (inode: Inode) Result(void),
-    findFn: *allowzero const fn (name: []const u8) ?Inode,
-    removeFn: *allowzero const fn (name: []const u8) Result(void),
-) Result(void)
-```
-
-Creates a [directory hook](/md/srvre/kernel/wiki/vfs.md#directory-hook)
-at `path_c`. This system call can fail.
-All but the last component of the path must already exist
-and support holding sub-resources.
-
-* `path_c` is a null-terminated POSIX path
-* `provideFn` is the callback to invoke when any "provide\*" syscall provides a direct sub-resource of this resource
-* `findFn` is the callback to invoke to get a sub-resource by name if it exists
-* `removeFn` is the callback to invoke when the [remove](#remove-100008) syscall removes a direct sub-resource of this resource
-
-remove (#100008)
+launch (#100002)
 ----------------
 
 Signature:
 ```
-remove(path_c: [*:0]const u8) Result(void)
+launch(bytes: [*]align(@alignOf(std.elf.Elf64_Ehdr)) const u8, len: usize) !usize
 ```
 
-**WARNING:** This system call is currently not implemented and will cause a kernel panic.
+Maps the provided ELF into memory and starts its entry point in a new process,
+returning its ID.
 
-Removes a [resource](/md/srvre/kernel/wiki/vfs.md#resources)
-from the [VFS](/md/srvre/kernel/wiki/vfs.md).
+The bytes need to have the same alignment as the ELF header (currently 8).
 
-* `path_c` is a null-terminated POSIX path
+* `bytes` is a pointer to the ELF data
+* `len` is the length of the ELF data in bytes
 
-read (#100009)
---------------
+end (#100003)
+-------------
 
 Signature:
 ```
-read(handle: usize, buffer: [*]u8, len: usize) Result(usize)
+end() noreturn
 ```
 
-Reads up to `len` bytes from the resource referenced by `handle` into `buffer`,
-returning how many bytes were read or an error.
-A return value of zero indicates that there is no more data to be read
-or that `len` is zero.
+Terminates the calling thread. If the calling thread is the main thread (ID 0)
+of the calling process, the entire process is terminated.
+This may change in the future.
 
-* `handle` is a handle to a resource descriptor
-* `buffer` is the buffer to read into
-* `len` is the maximum number of bytes to read and **must not be larger than the length of the buffer to prevent buffer overflows**
-
-write (#100010)
----------------
+terminate (#100004)
+-------------------
 
 Signature:
 ```
-write(handle: usize, bytes: [*]const u8, len: usize) Result(usize)
+terminate(pid: u16, tid: usize) !void
 ```
 
-Writes up to `len` bytes from `bytes` to the resource referenced by `handle`,
-returning how many bytes were written or an error.
-A return value of zero indicates that `len` is zero.
+Possible errors:
+```
+PidOutOfRange
+ProcessNotFound
+```
 
-* `handle` is a handle to a resource descriptor
-* `bytes` is the buffer to write from
-* `len` is the maximum number of bytes to write and **must not be larger than the length of the buffer to prevent buffer underflows**
+Terminates the specified thread. If the thread is the main thread (ID 0)
+of the process, the entire process is terminated.
+This may change in the future.
+
+* `pid` is the ID of the process to apply the termination to
+* `tid` is the ID of the thread to terminate within the process
+
+processId (#100005)
+-------------------
+
+Signature:
+```
+processId() usize
+```
+
+Returns the ID of the calling process.
+
+threadId (#100006)
+------------------
+
+Signature:
+```
+threadId() usize
+```
+
+Returns the ID of the calling thread within the calling process.
 
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 

@@ -7,9 +7,8 @@ When the kernel starts up on the boot hart it performs the following steps:
 
 1. Initialize the SBI console
 2. Enable all interrupts
-3. Configure Sv39 identity paging
+3. Configure Sv39 paging
 4. Configure the PLIC (Platform-Level Interrupt Controller) if present
-5. Enumerate PCI(e) devices if present
 6. Start `/init` from the embedded [userinit](/md/srvre/kernel/wiki/userinit.md)
 
 It is legal for the init process to terminate, but only if there is at least

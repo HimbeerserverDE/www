@@ -13,8 +13,7 @@ The kernel cannot be built if a userinit cannot be accessed at a predefined
 path. This is because it is embedded into the kernel binary so that it can be
 accessed without requiring any in-kernel drivers.
 
-A userinit is simply an uncompressed `tar(1)` blob containing a directory tree
-that is made available via the [VFS](/md/srvre/kernel/wiki/vfs.md).
+A userinit is an uncompressed `tar(1)` blob.
 The kernel searches for an `init` executable at its root
 (ignoring file permissions). This file is executed to hand over control
 to userspace and is typically responsible for starting essential drivers,
