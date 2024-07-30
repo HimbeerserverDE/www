@@ -59,7 +59,7 @@ errorName (#100000)
 
 Signature:
 ```
-errorName(code: usize, buffer: [*]u8, len: usize) !usize
+errorName(code: u16, buffer: [*]u8, len: usize) !usize
 ```
 
 Possible errors:
@@ -70,6 +70,8 @@ ErrorCodeOutOfRange
 
 Writes the name matching an error code to a buffer.
 If the name exceeds the length of the buffer the remaining bytes are truncated.
+
+An error code of zero (success) will result in an empty string.
 
 * `code` is the error code to get the name of
 * `buffer` is a pointer to the output buffer
