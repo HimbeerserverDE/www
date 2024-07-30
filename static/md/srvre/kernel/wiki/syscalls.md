@@ -44,15 +44,16 @@ List
 The following syscalls are currently available.
 Detailed descriptions follow after the summary table.
 
-| Number | Name                                 |
-| :----: | :----------------------------------- |
-| 100000 | [errorName](#errorname-100000)       |
-| 100001 | [consoleWrite](#consoleWrite-100001) |
-| 100002 | [launch](#launch-100002)             |
-| 100003 | [end](#end-100003)                   |
-| 100004 | [terminate](#terminate-100004)       |
-| 100005 | [processId](#processid-100005)       |
-| 100006 | [threadId](#threadid-100006)         |
+| Number | Name                                   |
+| :----: | :------------------------------------- |
+| 100000 | [errorName](#errorname-100000)         |
+| 100001 | [consoleWrite](#consoleWrite-100001)   |
+| 100002 | [launch](#launch-100002)               |
+| 100003 | [end](#end-100003)                     |
+| 100004 | [terminate](#terminate-100004)         |
+| 100005 | [processId](#processid-100005)         |
+| 100006 | [threadId](#threadid-100006)           |
+| 100007 | [rawUserinit](#rawuserinit-100007)     |
 
 errorName (#100000)
 -------------------
@@ -158,6 +159,23 @@ threadId() usize
 ```
 
 Returns the ID of the calling thread within the calling process.
+
+rawUserinit (#100007)
+---------------------
+
+Signature:
+```
+rawUserinit(ptr: *[*]const u8) usize
+```
+
+Writes the memory address of the raw bytes of the
+[userinit](/md/srvre/kernel/wiki/userinit.md) tarball to the specified pointer
+using double indirection, returning the length of the tarball (in bytes).
+
+The resulting memory is mapped read-only so any modifications will result
+in a page fault.
+
+* `ptr` is a pointer to the pointer to set to the userinit memory address
 
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 
