@@ -54,6 +54,7 @@ Detailed descriptions follow after the summary table.
 | 100005 | [processId](#processid-100005)         |
 | 100006 | [threadId](#threadid-100006)           |
 | 100007 | [rawUserinit](#rawuserinit-100007)     |
+| 100008 | [devicesByKind](#devicesbykind-100008) |
 
 errorName (#100000)
 -------------------
@@ -176,6 +177,25 @@ The resulting memory is mapped read-only so any modifications will result
 in a page fault.
 
 * `ptr` is a pointer to the pointer to set to the userinit memory address
+
+devicesByKind (#100009)
+-----------------------
+
+Signature:
+```
+devicesByKind(kind: hwinfo.DevKind, devices: [*]hwinfo.Dev, len: usize) !usize
+```
+
+Finds hardware devices of the specified kind and writes them to the provided
+output array in the order they appear in the [HWI](/md/srvre/kernel/wiki/hwi.md)
+blob, returning how many devices were found and written.
+
+If the specified maximum length of the array is reached, no further matches
+are searched for.
+
+* `kind` is the device kind to filter for
+* `devices` is the output array the matching devices are placed in
+* `len` is the (maximum) length of the output array
 
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 
