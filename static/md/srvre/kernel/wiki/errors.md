@@ -17,7 +17,7 @@ are not stable across source code changes due to the internal use of Zig's
 `@intFromError` builtin function. The only way to receive meaningful
 information about an error code is to pass it to the kernel.
 Currently the only way to do this is the
-[errorName](/md/srvre/wiki/syscalls.md#errorname-100000) system call
+[errorName](/md/srvre/kernel/wiki/syscalls.md#errorname-100000) system call
 which writes the textual representation of the error to a user-provided buffer
 by using `@errorName`. This string can be matched against or printed to the
 user.
