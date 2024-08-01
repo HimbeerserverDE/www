@@ -84,10 +84,11 @@ consoleWrite (#100001)
 
 Signature:
 ```
-consoleWrite(bytes: [*]const u8, len: usize) void
+consoleWrite(bytes: [*]const u8, len: usize) !usize
 ```
 
-Writes the string at `bytes` directly to the debug console.
+Writes the provided `bytes` directly to the debug console,
+returning how many bytes were written or an error.
 
 * `bytes` is a pointer to the string
 * `len` is the length of the string in bytes
