@@ -147,7 +147,7 @@ processId (#100005)
 
 Signature:
 ```
-processId() usize
+processId() u16
 ```
 
 Returns the ID of the calling process.
