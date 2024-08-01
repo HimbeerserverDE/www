@@ -54,6 +54,10 @@ Detailed descriptions follow after the summary table.
 | 100005 | [processId](#processid-100005)         |
 | 100006 | [threadId](#threadid-100006)           |
 | 100007 | [devicesByKind](#devicesbykind-100007) |
+| 100008 | [join](#join-100008)                   |
+| 100009 | [leave](#leave-100009)                 |
+| 100010 | [pass](#pass-100010)                   |
+| 100011 | [receive](#receive-100011)             |
 
 errorName (#100000)
 -------------------
@@ -179,6 +183,80 @@ are searched for.
 * `kind` is the device kind to filter for
 * `devices` is the output array the matching devices are placed in
 * `len` is the (maximum) length of the output array
+
+join (#100008)
+--------------
+
+Signature:
+```
+join(channel: usize) !void
+```
+
+Joins the specified [message passing](/md/srvre/kernel/wiki/msgpass.md) channel
+if permitted, allowing messages to be received. If the calling process is
+already a member of the channel, this is a no-op.
+
+See the message passing documentation for details.
+
+* `channel` is the ID of the channel to join
+
+leave (#100009)
+---------------
+
+Signature:
+```
+leave(channel: usize) void
+```
+
+Leaves the specified [message passing](/md/srvre/kernel/wiki/msgpass.md)
+channel, preventing further messages from being received. If the calling
+process is not a member of the channel, this is a no-op.
+
+See the message passing documentation for details.
+
+* `channel` is the ID of the channel to leave
+
+pass (#100010)
+--------------
+
+Signature:
+```
+pass(channel: usize, receiver: u16, bytes: [*]const u8, len: usize) !void
+```
+
+Passes the provided bytes on the specified channel if permitted. If the
+`receiver` argument is non-zero, only the process with the matching ID will
+receive the message. Otherwise all channel members will receive the message.
+Guarantees that the message is not truncated if the operation finishes
+successfully.
+
+* `channel` is the ID of the channel to pass the message on
+* `receiver` is the ID of the process to unicast the message to or zero for broadcast
+* `bytes` is a pointer to the message payload
+* `len` is the length of the message payload
+
+receive (#100011)
+-----------------
+
+Signature:
+```
+receive(channel: usize, sender: ?*u16, buffer: [*]u8, len: usize) !usize
+```
+
+Writes the most recent message on the specified channel to the provided buffer
+if permitted, returning the length of the message payload. The message is
+truncated if the buffer is not large enough. If `sender` is non-null, the ID of
+the sender process is written to the value it points to in order to enable
+unicast responses. This operation fails if the calling process is not a member
+of the channel (see [join](#join-100008)) or if there are no messages to be
+read (`channel.Error.WouldBlock`). Guarantees that the message has not been
+truncated if the operation finishes successfully and the buffer size was
+sufficient.
+
+* `channel` is the ID of the channel to receive the message from
+* `sender` is an optional pointer used to provide the ID of the sender process to the caller
+* `buffer` is a pointer to the output buffer for the message payload
+* `len` is the length of the output buffer, limiting how many bytes of the message can be read
 
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 

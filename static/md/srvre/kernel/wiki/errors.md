@@ -70,6 +70,8 @@ library errors) and user-friendly descriptions as well as troubleshooting tips.
 | MissingRegAddr                | The MMIO base address (second column) of a hardware information (text format) device is missing. This error can only be raised by the `hwi` tool because the kernel doesn't process the text format. |
 | MissingRegLen                 | The MMIO region size (third column) of a hardware information (text format) device is missing. This error can only be raised by the `hwi` tool because the kernel doesn't process the text format. |
 | UnknownDevKind                | The device kind (first column) of a hardware information (text format) device is invalid. This error can only be raised by the `hwi` tool because the kernel doesn't process the text format. See the [hardware information documentation](/md/srvre/kernel/wiki/hwi.md) for details. |
+| NotJoined                     | The message passing operation requires the caller to be a member of the specified channel, but it is not. |
+| WouldBlock                    | The message receiving operation failed because there are no messages to be read. The caller may continuously attempt the operation until a message arrives. |
 
 [Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
 
