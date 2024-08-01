@@ -221,17 +221,20 @@ pass (#100010)
 
 Signature:
 ```
-pass(channel: usize, receiver: u16, bytes: [*]const u8, len: usize) !void
+pass(channel: usize, receiver: u16, identify: bool, bytes: [*]const u8, len: usize) !void
 ```
 
 Passes the provided bytes on the specified channel if permitted. If the
 `receiver` argument is non-zero, only the process with the matching ID will
 receive the message. Otherwise all channel members will receive the message.
-Guarantees that the message is not truncated if the operation finishes
-successfully.
+By default the receiver(s) will see zero as the sender process ID. If desired
+(e.g. for unicast responses), the `identify` argument may be set to true to
+inform receivers of the real ID.  Guarantees that the message is not truncated
+if the operation finishes successfully.
 
 * `channel` is the ID of the channel to pass the message on
 * `receiver` is the ID of the process to unicast the message to or zero for broadcast
+* `identify` specifies whether to expose the calling process ID to the receiver(s)
 * `bytes` is a pointer to the message payload
 * `len` is the length of the message payload
 
@@ -247,9 +250,10 @@ Writes the most recent message on the specified channel to the provided buffer
 if permitted, returning the length of the message payload. The message is
 truncated if the buffer is not large enough. If `sender` is non-null, the ID of
 the sender process is written to the value it points to in order to enable
-unicast responses. This operation fails if the calling process is not a member
-of the channel (see [join](#join-100008)) or if there are no messages to be
-read (`channel.Error.WouldBlock`). Guarantees that the message has not been
+unicast responses. A value of zero indicates that the sender is anonymous. This
+value is trustworthy. The operation fails if the calling process is not a
+member of the channel (see [join](#join-100008)) or if there are no messages to
+be read (`channel.Error.WouldBlock`). Guarantees that the message has not been
 truncated if the operation finishes successfully and the buffer size was
 sufficient.
 
