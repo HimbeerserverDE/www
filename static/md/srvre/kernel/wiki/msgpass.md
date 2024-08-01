@@ -38,3 +38,7 @@ Channels can be joined using the
 [join](/md/srvre/kernel/wiki/syscalls.md#join-100008) [system
 call](/md/srvre/kernel/wiki/syscalls.md) and left using
 [leave](/md/srvre/kernel/wiki/syscalls.md#leave-100009).
+
+[Return to Wiki Main Page](/md/srvre/kernel/wiki.md)
+
+[Return to Index Page](/md/index.md)
