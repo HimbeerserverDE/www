@@ -53,8 +53,7 @@ Detailed descriptions follow after the summary table.
 | 100004 | [terminate](#terminate-100004)         |
 | 100005 | [processId](#processid-100005)         |
 | 100006 | [threadId](#threadid-100006)           |
-| 100007 | [rawUserinit](#rawuserinit-100007)     |
-| 100008 | [devicesByKind](#devicesbykind-100008) |
+| 100007 | [devicesByKind](#devicesbykind-100008) |
 
 errorName (#100000)
 -------------------
@@ -162,24 +161,7 @@ threadId() usize
 
 Returns the ID of the calling thread within the calling process.
 
-rawUserinit (#100007)
----------------------
-
-Signature:
-```
-rawUserinit(ptr: *[*]const u8) usize
-```
-
-Writes the memory address of the raw bytes of the
-[userinit](/md/srvre/kernel/wiki/userinit.md) tarball to the specified pointer
-using double indirection, returning the length of the tarball (in bytes).
-
-The resulting memory is mapped read-only so any modifications will result
-in a page fault.
-
-* `ptr` is a pointer to the pointer to set to the userinit memory address
-
-devicesByKind (#100009)
+devicesByKind (#100007)
 -----------------------
 
 Signature:
