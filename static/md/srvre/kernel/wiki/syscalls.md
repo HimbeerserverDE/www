@@ -1,6 +1,6 @@
 ---
 title: "Syscalls - SRVRE Kernel Wiki"
-date: "Wed Jun 19 2024"
+date: "Thu Aug 1 2024"
 ---
 
 System calls are the most fundamental interface between processes

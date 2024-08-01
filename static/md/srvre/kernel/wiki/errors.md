@@ -1,6 +1,6 @@
 ---
 title: "Errors - SRVRE Kernel Wiki"
-date: "Thu Jul 11 2024"
+date: "Thu Aug 1 2024"
 ---
 
 Most system calls return an error union, meaning that `a0`

@@ -1,6 +1,6 @@
 ---
 title: "Startup - SRVRE Kernel Wiki"
-date: "Wed Jun 19 2024"
+date: "Thu Aug 1 2024"
 ---
 
 When the kernel starts up on the boot hart it performs the following steps:
