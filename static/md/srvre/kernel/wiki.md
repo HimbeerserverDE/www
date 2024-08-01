@@ -13,7 +13,7 @@ List
 ====
 
 * [Startup](/md/srvre/kernel/wiki/startup.md)
-* [userinit](/md/srvre/kernel/wiki/userinit.md)
+* [init](/md/srvre/kernel/wiki/init.md)
 * [Syscalls](/md/srvre/kernel/wiki/syscalls.md)
 * [Message passing](/md/srvre/kernel/wiki/msgpass.md)
 * [Errors](/md/srvre/kernel/wiki/errors.md)
