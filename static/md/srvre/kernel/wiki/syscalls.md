@@ -53,7 +53,7 @@ Detailed descriptions follow after the summary table.
 | 100004 | [terminate](#terminate-100004)         |
 | 100005 | [processId](#processid-100005)         |
 | 100006 | [threadId](#threadid-100006)           |
-| 100007 | [devicesByKind](#devicesbykind-100008) |
+| 100007 | [devicesByKind](#devicesbykind-100007) |
 
 errorName (#100000)
 -------------------
