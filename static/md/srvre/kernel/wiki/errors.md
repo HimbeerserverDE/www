@@ -41,6 +41,7 @@ library errors) and user-friendly descriptions as well as troubleshooting tips.
 | BadBitLen                     | The binary was compiled for a bit length other than 64-bit and cannot be executed. Recompile it for 64-bit if possible. |
 | NotStaticExe                  | The binary is not a statically linked executable and cannot be executed. Link statically if possible. |
 | LengthOutOfBounds             | The `filesz` or `memsz` field of an ELF Program Header exceeds the file size or the allocated memory size. The binary is likely malicious and cannot be executed. |
+| ReservedMemMapping            | The `vaddr` field of an ELF Program Header overlaps with critical kernel memory. The binary cannot be executed. Support for this may be added in the future. |
 | BranchPerms                   | The binary wants certain memory regions to be loaded without any permission bits set. Since RISC-V treats such entries as page table branches this is forbidden and the binary cannot be executed. This shouldn't happen unless you are manually controlling the linking procedure with a linker script that is flawed. |
 | WritableCode                  | The binary wants certain memory regions to be loaded with both the "write" and "execute" permission bits set. Modifiable code is a security risk and the binary cannot be executed. Check your compiler/linker settings for the affected program if possible, and make sure to use an up-to-date compiler. |
 | ZeroSize                      | The page allocator was invoked with an allocation size of 0. This can currently only be caused by kernel bugs, but processes will gain the ability to allocate heap memory in the future. |
@@ -50,9 +51,8 @@ library errors) and user-friendly descriptions as well as troubleshooting tips.
 | InterruptOutOfRange           | An attempt to configure or complete an external interrupt with ID 0 was made. This hints at a kernel bug. |
 | ContextOutOfRange             | An attempt to interact with an external interrupt context with an ID greater than or equal to 15872 was made. This hints at a kernel bug. |
 | ZeroAddressSupplied           | A memory address of zero was passed as a system call parameter that does not support it. The operation was aborted to prevent a kernel panic from casting it to a non-allowzero pointer (required by most internal kernel functions). This is most likely an application bug. |
+| OutOfRange                    | A parameter exceeds its maximum allowed bit size (e.g. u16 for process IDs). This hints at an application bug. |
 | UnknownSyscall                | A [system call](/md/srvre/kernel/wiki/syscalls.md) with the specified number does not exist. This is a bug or version mismatch in the affected program or the library it uses to issue system calls. |
-| ErrorCodeOutOfRange           | An error code outside the range of 16-bit unsigned integers was passed to the kernel. This hints at an application bug. |
-| PidOutOfRange                 | A process ID outside the range of 16-bit unsigned integers was passed to the kernel. This hints at an application bug. |
 | ProcessNotFound               | A process with the specified ID could not be found. |
 | Failed                        | The SBI (firmware) returned with a general failure status. |
 | NotSupported                  | The SBI (firmware) doesn't support the requested feature. This shouln't occur in U-mode programs. Try updating the SBI. |
