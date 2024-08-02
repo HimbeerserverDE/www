@@ -1,6 +1,6 @@
 ---
 title: "Syscalls - SRVRE Kernel Wiki"
-date: "Thu Aug 1 2024"
+date: "Fri Aug 2 2024"
 ---
 
 System calls are the most fundamental interface between processes
@@ -54,10 +54,12 @@ Detailed descriptions follow after the summary table.
 | 100005 | [processId](#processid-100005)         |
 | 100006 | [threadId](#threadid-100006)           |
 | 100007 | [devicesByKind](#devicesbykind-100007) |
-| 100008 | [join](#join-100008)                   |
-| 100009 | [leave](#leave-100009)                 |
-| 100010 | [pass](#pass-100010)                   |
-| 100011 | [receive](#receive-100011)             |
+| 100008 | [unlock](#unlock-100008)               |
+| 100009 | [lock](#lock-100009)                   |
+| 100010 | [join](#join-100010)                   |
+| 100011 | [leave](#leave-100011)                 |
+| 100012 | [pass](#pass-100012)                   |
+| 100013 | [receive](#receive-100013)             |
 
 errorName (#100000)
 -------------------
@@ -184,7 +186,37 @@ are searched for.
 * `devices` is the output array the matching devices are placed in
 * `len` is the (maximum) length of the output array
 
-join (#100008)
+unlock (#100008)
+----------------
+
+Signature:
+```
+unlock(reg_addr: usize, writable: bool) !usize
+```
+
+Maps the device with the specified physical base memory address into the memory
+of the calling process if permitted, returning the virtual base memory address
+the device can be accessed at. The physical base memory address and length can
+be obtained using [devicesByKind](#devicesbykind-100007).
+
+* `reg_addr` is the physical base memory address of the device
+* `writable` specifies whether the memory should be writable (needed in most cases)
+
+lock (#100009)
+--------------
+
+Signature:
+```
+lock(vaddr: usize) !void
+```
+
+Unmaps the device with the specified virtual base memory address, immediately
+revoking all access to it. The virtual base memory address is the one returned
+by [unlock](#unlock-100008).
+
+* `vaddr` is the virtual base memory address of the device
+
+join (#100010)
 --------------
 
 Signature:
@@ -200,7 +232,7 @@ See the message passing documentation for details.
 
 * `channel` is the ID of the channel to join
 
-leave (#100009)
+leave (#100011)
 ---------------
 
 Signature:
@@ -216,7 +248,7 @@ See the message passing documentation for details.
 
 * `channel` is the ID of the channel to leave
 
-pass (#100010)
+pass (#100012)
 --------------
 
 Signature:
@@ -238,7 +270,7 @@ if the operation finishes successfully.
 * `bytes` is a pointer to the message payload
 * `len` is the length of the message payload
 
-receive (#100011)
+receive (#100013)
 -----------------
 
 Signature:
