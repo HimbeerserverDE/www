@@ -182,6 +182,10 @@ blob, returning how many devices were found and written.
 If the specified maximum length of the array is reached, no further matches
 are searched for.
 
+See the [HWI device kind
+documentation](/md/srvre/kernel/wiki/hwi.md#device-kinds) for a list of valid
+values for the `kind` argument.
+
 * `kind` is the device kind to filter for
 * `devices` is the output array the matching devices are placed in
 * `len` is the (maximum) length of the output array
