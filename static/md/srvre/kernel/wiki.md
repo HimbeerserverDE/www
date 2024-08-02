@@ -17,6 +17,7 @@ List
 * [Syscalls](/md/srvre/kernel/wiki/syscalls.md)
 * [Message passing](/md/srvre/kernel/wiki/msgpass.md)
 * [Errors](/md/srvre/kernel/wiki/errors.md)
+* [HWI (Hardware Info)](/md/srvre/kernel/wiki/hwi.md)
 
 [Project Page](/md/srvre/kernel.md)
 
