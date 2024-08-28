@@ -98,18 +98,3 @@ git.himbeerserver.de {
 		}
 	}
 }
-
-searxng.himbeerserver.de {
-	reverse_proxy /searxng unix:///usr/local/searxng/run/socket
-
-	transport uwsgi {
-		uwsgi_param HTTP_HOST {host}
-		uwsgi_param HTTP_CONNECTION {http.request.header.connection}
-
-		uwsgi_param HTTP_X_SCHEME {http.request.scheme}
-		uwsgi_param HTTP_X_SCRIPT_NAME /searxng
-
-		uwsgi_param HTTP_X_REAL_IP {client_ip}
-		uwsgi_param HTTP_X_FORWARDED_FOR {remote}
-	}
-}
