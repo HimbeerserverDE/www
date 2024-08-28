@@ -98,3 +98,15 @@ git.himbeerserver.de {
 		}
 	}
 }
+
+searxng.himbeerserver.de {
+	reverse_proxy * localhost:8001
+
+	@external {
+		not client_ip 10.128.10.0/24 10.128.50.0/24 fd0b:9272:534e:2::/64 fd0b:9272:534e:6::/64 2a00:1f:2640::/48
+	}
+
+	basic_auth @external {
+		import searxng_passwd
+	}
+}
