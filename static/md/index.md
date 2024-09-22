@@ -100,4 +100,5 @@ More websites you might be interested in
 * [Riley](https://dasriley.de) (formerly DerZombiiie)
 * [j45](https://j45.dev)
 * [Lizzy Fleckenstein](https://lizzy.rs)
+* [Elidragon](https://elidragon.io)
 * [Michael Stapelberg](https://michael.stapelberg.ch) (distri, gokrazy, i3)
