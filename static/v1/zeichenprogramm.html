@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<title>Zeichenprogramm online</title>
+<meta charset="UTF-8">
+<meta content="width=device-width;height=device-height">
+<body style="background-color:#7ff716">
+<center>
+<h3>Zeichnen mit 
+	<span style="color:white;background:black">&nbsp;Koordinaten&nbsp;</span>
+</h3>
+<canvas id="meinCanvas" width="300" height="200" style="border:5px solid black;">
+	Kein Canvas in diesem Browser?
+</canvas>
+<br><p>Pos X</p><input type="text" id="ax">
+<br><p>Pos Y</p><input type="text" id="ay">
+<br>
+<br><p>Goto X</p><input type="text" id="x">
+<br><p>Goto Y</p><input type="text" id="y">
+<br>
+<br>
+<div style="background-color:gray;height:5em;width:10em">
+<br><button onclick="einlesen()" style="background-color:lightgreen;color:white">Einlesen</button>
+<br><button onclick="zeichne()" style="background-color:red;color:white">Zeichnen</button>
+</div>
+<center>
+<br /><a href="index.php" style="color:red">Hauptseite</a> <i>BROKEN</i>
+<br /><a href="impressum/" style="color:#0099ff">Impressum</a> <i>BROKEN</i>
+<br /><a href="/md/index.md" style="color:#ff9900">Return to Index Page</a> <i>NON-ORIGINAL</i>
+</center>
+<script>
+	//Standardbefehle, um mit dem Canvas arbeiten zu können
+/*var pw = prompt("Bitte abbrechen!");
+if(pw===null) {	
+*/	var canvasobjekt = document.getElementById("meinCanvas");
+	var ctx = canvasobjekt.getContext("2d");
+	function einlesen() {
+		var px = document.querySelector("#x").value;
+		var py = document.querySelector("#y").value;
+		var ax = document.querySelector("#ax").value;
+		var ay = document.querySelector("#ay").value;
+		ctx.moveTo(px, py);
+		ctx.lineTo(ax, ay);
+	}
+	function zeichne() {
+		ctx.stroke();
+	}
+//} else alert("Nicht autorisiert!");
+</script>
+</center>
+</body>
+</html>

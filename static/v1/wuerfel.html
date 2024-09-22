@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Himbeerserver - Würfel</title>
+<meta content="width=device-width">
+<meta content="height=device-height">
+</head>
+<style type="text/css">
+body{background-color:#D3305F}
+h1{color:#25ED37}
+p{color:#25ED37}
+a{color:#25ED37}
+</style>
+<body>
+<center>
+<h1>Würfel</h1>
+<p id="output">Ausgabe der Zufallszahlen</p>
+<br />
+<button onclick="ran()">Würfeln</button>
+<script>
+var zahl=Math.floor(Math.random()*9);
+if(zahl>6 || zahl<1) document.location.href="";
+else;
+document.getElementById("output").innerHTML=zahl;
+function ran() {
+document.location.href="";
+}
+</script>
+<br /><a href="../games">Spieleübersicht</a> <i>BROKEN</i>
+<br /><small><a href="../impressum">Impressum</a> <i>BROKEN</i></small>
+<br /><a href="/md/index.md">Return to Index Page</a> <i>NON-ORIGINAL</i>
+</center>
+</body>

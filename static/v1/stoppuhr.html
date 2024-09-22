@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Himbeerserver - Stoppuhr</title>
+<meta content="width=device-width">
+<meta content="height=device-height">
+</head>
+<style type="text/css">
+body{background-color:#D3305F}
+h1{color:#25ED37}
+p{color:#25ED37}
+a{color:#25ED37}
+</style>
+<body>
+<center>
+<h1>Stoppuhr</h1>
+<p id="output">Ausgabe der Sekunden</p>
+<p id="outputmin">Ausgabe der Minuten</p>
+<p id="outputh">Ausgabe der Stunden</p>
+<br /><button onclick="start()">Messung beginnen</button>
+<br /><button onclick="stop()">Messung stoppen</button>
+<br /><button onclick="reset()">Zeit zurücksetzen</button>
+<br /><a href="../games">Spieleübersicht</a> <i>BROKEN</i>
+<br /><small><a href="../impressum">Impressum</a> <i>BROKEN</i></small>
+<br /><a href="/md/index.md">Return to Index Page</a> <i>NON-ORIGINAL</i>
+</center>
+</body>
+<script>
+var zeit=0;
+var laufe="wahr";
+var zeit2=0;
+var zeit3=0;
+function stop() {
+laufe="falsch";
+}
+async function start() {
+await sleep(1000);
+laufe="wahr";
+while(laufe==="wahr") {
+zeit++;
+zeit2=zeit/60;
+zeit2=Math.floor(zeit2);
+zeit3=zeit2/60;
+zeit3=Math.floor(zeit3);
+document.getElementById("output").innerHTML="Sekunden: "+zeit;
+document.getElementById("outputmin").innerHTML="Minuten: "+zeit2;
+document.getElementById("outputh").innerHTML="Stunden: "+zeit3;
+await sleep(1000);
+}
+}
+function reset() {
+zeit=0;
+zeit2=0;
+zeit3=0;
+document.getElementById("output").innerHTML="Sekunden: "+zeit;
+document.getElementById("outputmin").innerHTML="Minuten: "+zeit2;
+document.getElementById("outputh").innerHTML="Stunden: "+zeit3;
+}
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+</script>

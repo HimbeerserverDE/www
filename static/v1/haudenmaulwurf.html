@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+<title>Himbeerserver - Hau den Maulwurf</title>
+<meta charset="utf-8">
+<meta content="width=device-width">
+<meta content="height=device-height">
+<style type="text/css">
+body{background-color:#D3305F}
+h1{color:#25ED37}
+p{color:#25ED37}
+a{color:#25ED37}
+</style>
+<body>
+<center>
+<h1>Hau den Maulwurf</h1>
+<p id="oput"></p>
+<button onclick="nulli()">0</button>
+<button onclick="eins()">1</button>
+<button onclick="zwei()">2</button>
+<button onclick="drei()">3</button>
+<button onclick="vier()">4</button>
+<button onclick="fuenf()">5</button>
+<button onclick="sechs()">6</button>
+<br /><br />
+<button onclick="nochmal()">Nochmal</button>
+<br /><br />
+<a href="../">Hauptseite</a> <i>BROKEN</i>
+<a href="../games">Spieleübersicht</a> <i>BROKEN</i>
+<small><a href="../impressum">Impressum</a> <i>BROKEN</i></small>
+<a href="/md/index.md">Return to Index Page</a> <i>NON-ORIGINAL</i>
+<script>
+function nochmal() {
+document.location.reload();
+}
+var highscore=0;
+var iput;
+var gener;
+neu();
+function neu() {
+gener=Math.floor(Math.random()*6);
+var roput=gener.toString();
+document.getElementById("oput").innerHTML=roput;
+setTimeout("check()", 2000);
+}
+function nulli() {
+iput="0";
+//check();
+}
+function eins() {
+iput="1";
+//check();
+}
+function zwei() {
+iput="2";
+//check();
+}
+function drei() {
+iput="3";
+//check();
+}
+function vier() {
+iput="4";
+//check();
+}
+function fuenf() {
+iput="5";
+//check();
+}
+function sechs() {
+iput="6";
+//check();
+}
+function check() {
+if(iput==gener) {
+neu();
+highscore++;
+} else {
+alert("Verloren! Punkte: "+highscore);
+}
+}
+</script>
+</center>
+</body>

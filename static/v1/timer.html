@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Himbeerserver - Timer</title>
+<meta content="width=device-width">
+<meta content="height=device-height">
+</head>
+<style type="text/css">
+body{background-color:#D3305F}
+h1{color:#25ED37}
+p{color:#25ED37}
+a{color:#25ED37}
+</style>
+<body>
+<center>
+<h1>Timer</h1>
+<p>Zeit in Sekunden eingeben: </p>
+<input type="text" id="iput"><button onclick="zeite()">Starten</button>
+<p id="oput">Verbleibende Zeit: NICHT GESTARTET</p>
+<p id="oput2">Verbleibende Zeit: NICHT GESTARTET</p>
+<p id="oput3">Verbleibende Zeit: NICHT GESTARTET</p>
+<button onclick="pausieren()" id="knopf">Pause</button>
+<br /><a href="../games">Spieleübersicht</a> <i>BROKEN</i>
+<br /><small><a href="../impressum">Impressum</a> <i>BROKEN</i></small>
+<br /><a href="/md/index.md">Return to Index Page</a> <i>NON-ORIGINAL</i>
+</center>
+</body>
+<script>
+var pausiert="falsch";
+var getzeit=document.querySelector("#iput").value;
+var zeit=parseInt(getzeit, 0);
+var zeit2=zeit/60;
+zeit2=Math.floor(zeit2);
+var zeit3=zeit/60;
+zeit3=Math.floor(zeit3);
+var gesperrt="falsch";
+function pausieren() {
+if(pausiert==="falsch") {
+pausiert="wahr";
+document.getElementById("knopf").innerHTML="Fortsetzen";
+}
+else if(pausiert==="wahr") {
+pausiert="falsch";
+document.getElementById("knopf").innerHTML="Pause";
+}
+else alert("Fehler 500: Verarbeitung fehlgeschlagen");
+}
+function sleep(ms) {
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function zeite() {
+if(gesperrt==="wahr") {
+alert("Der Timer wurde zurückgesetzt, weil eine zweite Eingabe getätigt wurde!");
+document.location.href="timer.php";
+}
+else;
+gesperrt="wahr";
+getzeit=document.querySelector("#iput").value;
+zeit=parseInt(getzeit, 0);
+while(zeit!=0) {
+if(pausiert==="falsch") {
+await sleep(1000);
+zeit--;
+document.getElementById("oput").innerHTML="Verbleibende Zeit: "+zeit+" Sekunden";
+zeit2=zeit/60;
+zeit2=Math.floor(zeit2);
+zeit3=zeit2/60;
+zeit3=Math.floor(zeit3);
+document.getElementById("oput2").innerHTML="Verbleibende Zeit: "+zeit2+" Minuten";
+document.getElementById("oput3").innerHTML="Verbleibende Zeit: "+zeit3+" Stunden";
+check();
+}
+else await sleep(500);
+}
+}
+function check() {
+if(zeit===0) document.location.href="timer.php?zeitum";
+}
+</script>
+
+<p>
+Server-side code (PHP):
+
+if(isset($_GET['zeitum'])) {
+echo('&lt;center&gt;&lt;h1 style="color:yellow"&gt;Zeit um!&lt;/h1&gt;&lt;/center&gt;');
+// echo('&lt;center&gt;&lt;h1&gt;&lt;a href="timer.php"&gt;Nochmal&lt;/a&gt;&lt;/h1&gt;&lt;/center&gt;');
+echo('&lt;audio controls autoplay="autoplay" hidden="true"&gt;
+&lt;source src="timervorbei.mp3" type="audio/mpeg" hidden="true" autostart="true"&gt;
+&lt;/audio&gt;');
+} else;
+</p>

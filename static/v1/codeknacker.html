@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+<title>Himbeerserver - Codeknacker</title>
+<meta charset="utf-8">
+<meta content="width=device-width">
+<meta content="height=device-height">
+</head>
+<style type="text/css">
+body{background-color:#D3305F}
+h1{color:#25ED37}
+p{color:#25ED37}
+a{color:#25ED37}
+</style>
+<body>
+<center>
+<h1>Codeknacker-Spiel</h1>
+<div style="width:10em;height:3em;padding:1em;margin:1em;text-align:center">
+<p id="ausgabe">
+</div>
+<button onclick="eins()">1</button>
+<button onclick="zwei()">2</button>
+<button onclick="drei()">3</button>
+<br />
+<button onclick="vier()">4</button>
+<button onclick="fuenf()">5</button>
+<button onclick="sechs()">6</button>
+<br />
+<button onclick="sieben()">7</button>
+<button onclick="acht()">8</button>
+<button onclick="neun()">9</button>
+<br />
+<button onclick="c()">C</button>
+<button onclick="nulli()">0</button>
+<button onclick="enter()">→</button>
+<script>
+var gener=Math.floor(Math.random()*10000);
+var req=gener.toString();
+var testing="String";
+c();
+outputting();
+function eins() {
+testing+="1";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function zwei() {
+testing+="2";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function drei() {
+testing+="3";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function vier() {
+testing+="4";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function fuenf() {
+testing+="5";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function sechs() {
+testing+="6";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function sieben() {
+testing+="7";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function acht() {
+testing+="8";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function neun() {
+testing+="9";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function nulli() {
+testing+="0";
+document.getElementById("ausgabe").innerHTML=testing;
+}
+function c() {
+testing="";
+document.getElementById("ausgabe").innerHTML="";
+}
+function enter() {
+if(testing===req) {
+alert("Gut gemacht! Du hast den Code geknackt! Du wirst gleich weitergeleitet...");
+setTimeout("stop()", 3000);
+} else {
+alert("Der Code ist nicht richtig! Bitte erneut versuchen!");
+var comp=parseInt(testing);
+if(comp>gener) alert("Zahl war zu groß!");
+if(comp<gener) alert("Zahl war zu klein!");
+testing="";
+document.getElementById("ausgabe").innerHTML="";
+}
+}
+function stop() {
+document.location.href="index.php";
+}
+function outputting() {
+document.getElementById("ausgabe").innerHTML=testing;
+}
+</script>
+<br /><a href="../games">Spieleübersicht</a> <i>BROKEN</i>
+<br /><small><a href="../impressum">Impressum</a> <i>BROKEN</i></small>
+<br /><a href="/md/index.md">Return to Index Page</a> <i>NON-ORIGINAL</i>
+</center>
+</body>
