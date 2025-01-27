@@ -15,5 +15,6 @@ or that I've struggled with for a long time.
 * [Write your own PPP(oE) client with kernel mode tunneling](/md/guide/kppp.md)
 * [Write your own ip-tunnel](/md/guide/iproute2tun.md)
 * [IPv6 mit Vodafone DSL](/md/guide/vf6.md) (DE)
+* [Use OAuth2 email accounts with aerc + mbsync](/md/guide/oauthmail.md)
 
 [Return to Index Page](/md/index.md)
