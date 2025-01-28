@@ -36,7 +36,8 @@ used Thunderbird with the following method.
 7. Remove the email account and undo the configuration changes.
 8. Go to mitmweb and find a request to https://login.microsoftonline.com/common/oauth2/v2.0/token.
 9. Go to the response tab and copy the refresh_token. Write it to a file, e.g. ~/.oauthenticate/email_university.
-10. Go to the request tab and store the client_id somewhere for later reference.
+10. Ensure the permissions are secure: `chmod 700 ~/.oauthenticate` and `chmod 600 ~/.oauthenticate/*`.
+11. Go to the request tab and store the client_id somewhere for later reference.
 
 After completing these steps you can uninstall mitmproxy and Thunderbird
 assuming you don't need them for any other purposes.
