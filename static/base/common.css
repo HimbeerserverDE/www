@@ -5,6 +5,7 @@ code {
 
 pre {
 	background-color: lightgrey;
+	display: flex;
 	font-family: Monospace;
 }
 
