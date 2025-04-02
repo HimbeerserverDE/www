@@ -17,15 +17,18 @@ release planned).
 A curated archive of the first version of this website is available. See
 [Archive](#archive) for more information.
 
-Going private
-=============
+Scheduled downtime: Network transition
+======================================
 
-I am diverting all of my efforts towards studying.  I will be unable to work on
-public projects for the foreseeable future. You can still expect a response if
-you contact me, but it's very unlikely any non-trivial changes are going to be
-made or reviewed. Work on all projects is halted until further notice.
-
-This is not the end, but I need to set priorities.
+I am switching to a new network provider that does not offer static addressing.
+All publicly reachable hosts will become unreachable over the course of April
+14th, 2025 and are not going to be restored until at least April 18th, 2025. A
+request for my own PI (provider-independent) IPv6 space is in progress but
+unlikely to complete in time. There may be intermittent outages until the
+transition to the new address space has been completed, and IPv4 support is
+going to be added in the process. Interlinks to [dn42](https://dn42.eu) are
+also planned. If you are interested in peering, please [contact
+me](/md/contact.md).
 
 Services / Quick Links
 ======================
