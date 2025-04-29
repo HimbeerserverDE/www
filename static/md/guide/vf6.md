@@ -19,11 +19,15 @@ Anschlusstypen: IPv4 only, Dual Stack und DS-Lite. Dabei wird Dual Stack
 nie automatisch geschaltet. Ob man IPv4 only oder DS-Lite bekommt
 ist bei Vertragsabschluss leider nicht ersichtlich.
 
-Sollte IPv4 only nicht der Standard sein, ist die Ursache bei mir
+~~Sollte IPv4 only nicht der Standard sein, ist die Ursache bei mir
 wahrscheinlich entweder der Vertragsabschluss über ein Vergleichsportal
 oder die Wahl der Option "Eigenhardware Kunde" bei der Routerwahl.
 Letzteres kommt deshalb in Frage, weil es auf im Kabel-Segment
-zu einer anderen Art der Adressvergabe führt.
+zu einer anderen Art der Adressvergabe führt.~~
+
+**Update:** Ein Leser weist darauf hin, dass auch mit der Option "Eigenhardware
+Kunde" DS-Lite geschaltet werden kann. Die Umstellung auf Dual Stack ist auf
+dem gleichen Weg möglich.
 
 Anschlussart prüfen
 ===================
