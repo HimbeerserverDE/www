@@ -81,12 +81,12 @@ git.himbeerserver.de {
 	}
 
 	handle_path /cgit/* {
-		root * /usr/share/webapps/cgit
+		root * /usr/share/cgit
 		file_server
 	}
 
 	handle {
-		cgi * /usr/share/webapps/cgit/cgit.cgi
+		cgi * /usr/lib/cgit/cgit.cgi
 	}
 
 	handle_errors {
