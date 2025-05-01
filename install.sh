@@ -1,6 +1,6 @@
 #! /bin/sh
 
-source /srv/www/lib.sh
+. /srv/www/lib.sh
 
 for DIR in ${DIRS}; do
 	mkdir -p "${DIR}"
