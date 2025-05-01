@@ -33,10 +33,6 @@ install and maintain.
 Services / Quick Links
 ======================
 
-All of these services are only available via IPv6.
-See [this post](/md/ipv6.md) for why I'm doing this and why you should
-enable or even force it on your own servers too.
-
 * [Guides](/md/guides.md)
 * [Git](https://git.himbeerserver.de)
 * XMPP (TCP ports 5222 + 5223)
