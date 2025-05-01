@@ -17,18 +17,18 @@ release planned).
 A curated archive of the first version of this website is available. See
 [Archive](#archive) for more information.
 
-Scheduled downtime: Network transition
-======================================
+Recovery status
+===============
 
-I am switching to a new network provider that does not offer static addressing.
-All publicly reachable hosts will become unreachable over the course of April
-14th, 2025 and are not going to be restored until at least April 18th, 2025. A
-request for my own PI (provider-independent) IPv6 space is in progress but
-unlikely to complete in time. There may be intermittent outages until the
-transition to the new address space has been completed, and IPv4 support is
-going to be added in the process. Interlinks to [dn42](https://dn42.eu) are
-also planned. If you are interested in peering, please [contact
-me](/md/contact.md).
+The following services are fully functional:
+
+* HTTP
+* XMPP
+* git (SSH, cgit, git-daemon)
+
+Due to issues with the Debian packages, Matrix and SearXNG cannot be restored
+for the time being. SearXNG will be removed entirely due to being difficult to
+install and maintain.
 
 Services / Quick Links
 ======================
