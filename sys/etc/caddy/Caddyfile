@@ -3,6 +3,8 @@
 }
 
 himbeerserver.de {
+	tls /etc/ssl/uacme/himbeerserver.de/cert.pem /etc/ssl/uacme/private/himbeerserver.de/key.pem {}
+
 	reverse_proxy /_matrix/* localhost:8008
 
 	root * /srv/www/static
@@ -50,10 +52,14 @@ himbeerserver.de {
 }
 
 www.himbeerserver.de {
+	tls /etc/ssl/uacme/himbeerserver.de/cert.pem /etc/ssl/uacme/private/himbeerserver.de/key.pem {}
+
 	redir {scheme}://himbeerserver.de{uri} permanent
 }
 
 git.himbeerserver.de {
+	tls /etc/ssl/uacme/himbeerserver.de/cert.pem /etc/ssl/uacme/private/himbeerserver.de/key.pem {}
+
 	root * /srv/www/static
 
 	@base {

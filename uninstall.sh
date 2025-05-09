@@ -9,3 +9,5 @@ done
 for DIR in ${DIRS}; do
 	rm -r "${DIR}"
 done
+
+usermod -rG acme caddy
