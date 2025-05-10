@@ -30,7 +30,7 @@ The following well-known email addresses also redirect to my inbox:
 * [webmaster@himbeerserver.de](mailto:webmaster@himbeerserver.de)
 * [abuse@himbeerserver.de](mailto:abuse@himbeerserver.de)
 * [noc@himbeerserver.de](mailto:noc@himbeerserver.de)
-* [security@himbeerserver.de](mailto:noc@himbeerserver.de)
+* [security@himbeerserver.de](mailto:security@himbeerserver.de)
 
 Cryptography
 ============
