@@ -25,12 +25,12 @@ Channels
 
 The following well-known email addresses also redirect to my inbox:
 
-* [postmaster@himbeerserver.de](mailto:postmaster@himbeerserver.de)
-* [hostmaster@himbeerserver.de](mailto:hostmaster@himbeerserver.de)
-* [webmaster@himbeerserver.de](mailto:webmaster@himbeerserver.de)
-* [abuse@himbeerserver.de](mailto:abuse@himbeerserver.de)
-* [noc@himbeerserver.de](mailto:noc@himbeerserver.de)
-* [security@himbeerserver.de](mailto:security@himbeerserver.de)
+* [postmaster@himbeerserver.de](mailto:postmaster@himbeerserver.de) for email issues
+* [hostmaster@himbeerserver.de](mailto:hostmaster@himbeerserver.de) for DNS issues
+* [webmaster@himbeerserver.de](mailto:webmaster@himbeerserver.de) for web issues
+* [abuse@himbeerserver.de](mailto:abuse@himbeerserver.de) for abuse reports
+* [noc@himbeerserver.de](mailto:noc@himbeerserver.de) for network misconfigurations or peering requests
+* [security@himbeerserver.de](mailto:security@himbeerserver.de) for general security-relevant misconfiguration and vulnerability reports
 
 Cryptography
 ============
